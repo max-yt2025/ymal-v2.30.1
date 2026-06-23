@@ -1,109 +1,334 @@
-```html id="saf3t1"
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YMAL Safety</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YMAL Safety & Protection</title>
+    <meta name="description" content="YMAL Safety provides Discord server protection, website security, and privacy-focused tools to keep your communities safe.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Copilot_20260118_155318.png">
+    <style>
+        /* Additional styles for safety page */
+        .hero-safety {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-blue), #00c2ff);
+            border-radius: 20px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
 
-<style>
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#0f1117;
-    color:#ffffff;
-}
+        .hero-safety::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-.header{
-    padding:80px 20px;
-    text-align:center;
-    background:linear-gradient(135deg,#5865F2,#00c2ff);
-}
+        .hero-safety::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-.header h1{
-    font-size:3rem;
-    margin-bottom:15px;
-}
+        .hero-safety h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
 
-.header p{
-    font-size:1.2rem;
-    opacity:0.9;
-}
+        .hero-safety p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            line-height: 1.7;
+        }
 
-.section{
-    max-width:1000px;
-    margin:auto;
-    padding:60px 20px;
-}
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 60px 0;
+        }
 
-.card{
-    background:#181c25;
-    padding:25px;
-    border-radius:12px;
-    margin-bottom:20px;
-}
+        .safety-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+            text-align: left;
+        }
 
-.card h2{
-    margin-bottom:10px;
-}
+        .safety-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
 
-.footer{
-    text-align:center;
-    padding:25px;
-    border-top:1px solid #2a2d36;
-    opacity:0.7;
-}
-</style>
+        .safety-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .safety-card h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .safety-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .safety-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 40px 0 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .safety-stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .safety-stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .safety-stat-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero-safety h1 {
+                font-size: 2.5rem;
+            }
+            .hero-safety {
+                padding: 50px 20px;
+            }
+            .safety-stats {
+                gap: 25px;
+            }
+            .safety-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="header">
-    <h1>🛡️ YMAL Safety & Protection</h1>
-    <p>Protecting Discord Servers & Websites — Free, Secure, and Privacy-Focused</p>
-</div>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="/" class="logo-container">
+                <div class="logo-icon-custom"></div>
+                <div class="logo-text">Ymal.space</div>
+            </a>
 
-<div class="section">
+            <button class="menu-toggle" id="menuToggle">☰</button>
 
-    <div class="card">
-        <h2>Discord Server Protection</h2>
-        <p>
-        YMAL Anti-Raid helps protect Discord communities from raids, spam attacks,
-        fake Nitro scams, nukes, and malicious users. We automatically detect threats,
-        lock down servers when needed, and alert staff instantly.
-        </p>
-    </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy</a>
+                <a href="terms.html" class="nav-link">Terms</a>
+                <a href="https://search.ymal.space" class="search-button">Search →</a>
+            </nav>
+        </div>
+    </header>
 
-    <div class="card">
-        <h2>Website Protection</h2>
-        <p>
-        YMAL also helps protect websites from spam attacks, bot floods, and malicious traffic.
-        Our system focuses on safety, privacy, and keeping your platform stable and secure.
-        </p>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero-safety">
+        <div class="container">
+            <h1>🛡️ YMAL Safety & Protection</h1>
+            <p>
+                Protecting Discord Servers &amp; Websites — Free, Secure, and Privacy-Focused
+            </p>
 
-    <div class="card">
-        <h2>Privacy First</h2>
-        <p>
-        YMAL.space is built with privacy in mind. We do not sell user data.
-        We only use necessary information to keep systems safe and functional.
-        </p>
-    </div>
+            <div class="safety-stats">
+                <div class="safety-stat-item">
+                    <span class="safety-stat-number">🛡️</span>
+                    <span class="safety-stat-label">Full Protection</span>
+                </div>
+                <div class="safety-stat-item">
+                    <span class="safety-stat-number">🔒</span>
+                    <span class="safety-stat-label">Privacy First</span>
+                </div>
+                <div class="safety-stat-item">
+                    <span class="safety-stat-number">💰</span>
+                    <span class="safety-stat-label">100% Free</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-        <h2>Free Protection</h2>
-        <p>
-        Our core protection tools are free to use for all communities.
-        We believe every server and website deserves security, no matter the size.
-        </p>
-    </div>
+    <!-- Safety Features -->
+    <section class="features">
+        <div class="container">
+            <div class="safety-grid">
 
-</div>
+                <div class="safety-card">
+                    <span class="safety-icon">🛡️</span>
+                    <h2>Discord Server Protection</h2>
+                    <p>
+                        YMAL Anti-Raid helps protect Discord communities from raids, spam attacks,
+                        fake Nitro scams, nukes, and malicious users. We automatically detect threats,
+                        lock down servers when needed, and alert staff instantly.
+                    </p>
+                </div>
 
-<div class="footer">
-    © 2026 YMAL.space • Security & Privacy Protection
-</div>
+                <div class="safety-card">
+                    <span class="safety-icon">🌐</span>
+                    <h2>Website Protection</h2>
+                    <p>
+                        YMAL also helps protect websites from spam attacks, bot floods, and malicious traffic.
+                        Our system focuses on safety, privacy, and keeping your platform stable and secure.
+                    </p>
+                </div>
+
+                <div class="safety-card">
+                    <span class="safety-icon">🔒</span>
+                    <h2>Privacy First</h2>
+                    <p>
+                        YMAL.space is built with privacy in mind. We do not sell user data.
+                        We only use necessary information to keep systems safe and functional.
+                    </p>
+                </div>
+
+                <div class="safety-card">
+                    <span class="safety-icon">💰</span>
+                    <h2>Free Protection</h2>
+                    <p>
+                        Our core protection tools are free to use for all communities.
+                        We believe every server and website deserves security, no matter the size.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Keep Your Community Safe</h2>
+            <p class="cta-text">
+                Join thousands of communities already protected by YMAL's safety tools.
+                Free, secure, and built with privacy at its core.
+            </p>
+            <a href="/" class="cta-button">Learn More</a>
+            <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">
+                No hidden fees • Privacy guaranteed • Always free
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <div class="footer-logo-icon-custom"></div>
+                        <div class="footer-logo-text">Ymal.space</div>
+                    </a>
+                    <p class="footer-tagline">
+                        A privacy-first search engine that protects your data while delivering accurate results.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">𝕏</a>
+                        <a href="#" class="social-link">𝔽</a>
+                        <a href="#" class="social-link">𝕀</a>
+                        <a href="#" class="social-link">𝔾</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <div class="footer-links">
+                        <a href="https://search.ymal.space" class="footer-link">Search Engine</a>
+                        <a href="about.html" class="footer-link">Features</a>
+                        <a href="privacy-policy.html" class="footer-link">Privacy</a>
+                        <a href="terms.html" class="footer-link">Terms</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html" class="footer-link">About Us</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="careers.html" class="footer-link">Careers</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Legal</h4>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-link">Terms of Service</a>
+                        <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
+                        <a href="gdpr.html" class="footer-link">GDPR</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Ymal.space. All rights reserved. Search privately, live freely.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
-```
