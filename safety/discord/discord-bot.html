@@ -1,175 +1,403 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YMAL Anti-Raid</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YMAL Anti-Raid - Discord Protection Bot</title>
+    <meta name="description" content="YMAL Anti-Raid is a Discord protection bot against raids, nukes, scam links, fake Nitro scams, spam attacks, and malicious activity.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Copilot_20260118_155318.png">
+    <style>
+        /* Additional styles for discord-bot page */
+        .hero-bot {
+            padding: 80px 0 60px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-blue), #4752C4);
+            border-radius: 20px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
+        .hero-bot::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-body{
-    background:#0f1117;
-    color:white;
-}
+        .hero-bot::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:40px;
-    background:linear-gradient(135deg,#5865F2,#7289DA);
-}
+        .hero-bot h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
 
-.hero-content{
-    max-width:800px;
-}
+        .hero-bot p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            line-height: 1.7;
+        }
 
-.hero h1{
-    font-size:4rem;
-    margin-bottom:15px;
-}
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
 
-.hero p{
-    font-size:1.2rem;
-    margin-bottom:30px;
-    opacity:.9;
-}
+        .btn-primary {
+            display: inline-block;
+            background: white;
+            color: var(--primary-blue);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
 
-.buttons{
-    display:flex;
-    gap:15px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
 
-.btn{
-    text-decoration:none;
-    color:white;
-    background:#0f1117;
-    padding:14px 28px;
-    border-radius:10px;
-    font-weight:bold;
-    transition:.3s;
-}
+        .btn-secondary {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
 
-.btn:hover{
-    transform:translateY(-3px);
-}
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+        }
 
-.features{
-    padding:80px 20px;
-    max-width:1200px;
-    margin:auto;
-}
+        .features-bot {
+            padding: 60px 0;
+        }
 
-.features h2{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:2.5rem;
-}
+        .features-bot .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
+        .features-grid-bot {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
 
-.card{
-    background:#181c25;
-    padding:25px;
-    border-radius:12px;
-}
+        .feature-card-bot {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+            text-align: left;
+        }
 
-.card h3{
-    margin-bottom:10px;
-}
+        .feature-card-bot:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
 
-.footer{
-    text-align:center;
-    padding:30px;
-    border-top:1px solid #2a2d36;
-}
-</style>
+        .feature-icon-bot {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .feature-card-bot h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .feature-card-bot p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .bot-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 40px 0 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bot-stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .bot-stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .bot-stat-label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero-bot h1 {
+                font-size: 2.5rem;
+            }
+            .hero-bot {
+                padding: 50px 20px;
+            }
+            .bot-stats {
+                gap: 25px;
+            }
+            .features-grid-bot {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>🛡️ YMAL Anti-Raid</h1>
-
-        <p>
-            Advanced Discord protection against raids,
-            nukes, scam links, fake Nitro scams,
-            spam attacks, and malicious activity.
-        </p>
-
-        <div class="buttons">
-            <a class="btn"
-               href="https://discord.com/oauth2/authorize?client_id=1519007147881398363"
-               target="_blank">
-               Invite Bot
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="/" class="logo-container">
+                <div class="logo-icon-custom"></div>
+                <div class="logo-text">Ymal.space</div>
             </a>
 
-            <a class="btn"
-               href="https://discord.gg/hske9h6dAM"
-               target="_blank">
-               Support Server
+            <button class="menu-toggle" id="menuToggle">☰</button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy</a>
+                <a href="terms.html" class="nav-link">Terms</a>
+                <a href="https://search.ymal.space" class="search-button">Search →</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bot">
+        <div class="container">
+            <h1>🛡️ YMAL Anti-Raid</h1>
+            <p>
+                Advanced Discord protection against raids, nukes, scam links,
+                fake Nitro scams, spam attacks, and malicious activity.
+            </p>
+
+            <div class="bot-stats">
+                <div class="bot-stat-item">
+                    <span class="bot-stat-number">⚡</span>
+                    <span class="bot-stat-label">Real-time Detection</span>
+                </div>
+                <div class="bot-stat-item">
+                    <span class="bot-stat-number">🔒</span>
+                    <span class="bot-stat-label">Auto Lockdown</span>
+                </div>
+                <div class="bot-stat-item">
+                    <span class="bot-stat-number">🛡️</span>
+                    <span class="bot-stat-label">Full Protection</span>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a class="btn-primary"
+                   href="https://discord.com/oauth2/authorize?client_id=1519007147881398363"
+                   target="_blank">
+                   Invite Bot
+                </a>
+                <a class="btn-secondary"
+                   href="https://discord.gg/hske9h6dAM"
+                   target="_blank">
+                   Support Server
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features features-bot">
+        <div class="container">
+            <h2 class="section-title">Protection Features</h2>
+
+            <div class="features-grid-bot">
+
+                <div class="feature-card-bot">
+                    <span class="feature-icon-bot">⚡</span>
+                    <h3>Raid Detection</h3>
+                    <p>Detects mass spam, raids, and suspicious activity automatically before they cause damage.</p>
+                </div>
+
+                <div class="feature-card-bot">
+                    <span class="feature-icon-bot">🔒</span>
+                    <h3>Automatic Lockdown</h3>
+                    <p>Locks channels and servers instantly when attacks are detected, stopping threats in their tracks.</p>
+                </div>
+
+                <div class="feature-card-bot">
+                    <span class="feature-icon-bot">🚫</span>
+                    <h3>Scam Protection</h3>
+                    <p>Blocks fake Nitro scams, suspicious links, and phishing attempts to keep your community safe.</p>
+                </div>
+
+                <div class="feature-card-bot">
+                    <span class="feature-icon-bot">📋</span>
+                    <h3>Advanced Logging</h3>
+                    <p>Keeps detailed logs for moderation and investigations, giving you full visibility into incidents.</p>
+                </div>
+
+                <div class="feature-card-bot">
+                    <span class="feature-icon-bot">🛡️</span>
+                    <h3>Anti-Nuke</h3>
+                    <p>Protects against mass channel, role, and server destruction with proactive security measures.</p>
+                </div>
+
+                <div class="feature-card-bot">
+                    <span class="feature-icon-bot">👮</span>
+                    <h3>Moderator Tools</h3>
+                    <p>Powerful tools for staff teams to manage incidents quickly and maintain server秩序.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Protect Your Server Today</h2>
+            <p class="cta-text">
+                Join thousands of Discord communities already protected by YMAL Anti-Raid.
+                It's free, fast, and keeps your members safe.
+            </p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1519007147881398363" class="cta-button" target="_blank">
+                Add Bot to Discord
             </a>
+            <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">
+                Free to use • 24/7 protection • No server limits
+            </p>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="features">
-    <h2>Features</h2>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <div class="footer-logo-icon-custom"></div>
+                        <div class="footer-logo-text">Ymal.space</div>
+                    </a>
+                    <p class="footer-tagline">
+                        A privacy-first search engine that protects your data while delivering accurate results.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">𝕏</a>
+                        <a href="#" class="social-link">𝔽</a>
+                        <a href="#" class="social-link">𝕀</a>
+                        <a href="#" class="social-link">𝔾</a>
+                    </div>
+                </div>
 
-    <div class="grid">
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <div class="footer-links">
+                        <a href="https://search.ymal.space" class="footer-link">Search Engine</a>
+                        <a href="about.html" class="footer-link">Features</a>
+                        <a href="privacy-policy.html" class="footer-link">Privacy</a>
+                        <a href="terms.html" class="footer-link">Terms</a>
+                    </div>
+                </div>
 
-        <div class="card">
-            <h3>⚡ Raid Detection</h3>
-            <p>Detects mass spam, raids, and suspicious activity automatically.</p>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html" class="footer-link">About Us</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="careers.html" class="footer-link">Careers</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Legal</h4>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-link">Terms of Service</a>
+                        <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
+                        <a href="gdpr.html" class="footer-link">GDPR</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Ymal.space. All rights reserved. Search privately, live freely.</p>
+            </div>
         </div>
+    </footer>
 
-        <div class="card">
-            <h3>🔒 Automatic Lockdown</h3>
-            <p>Locks channels and servers when attacks are detected.</p>
-        </div>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
 
-        <div class="card">
-            <h3>🚫 Scam Protection</h3>
-            <p>Blocks fake Nitro scams, suspicious links, and phishing attempts.</p>
-        </div>
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
 
-        <div class="card">
-            <h3>📋 Advanced Logging</h3>
-            <p>Keeps detailed logs for moderation and investigations.</p>
-        </div>
-
-        <div class="card">
-            <h3>🛡️ Anti-Nuke</h3>
-            <p>Protects against mass channel, role, and server destruction.</p>
-        </div>
-
-        <div class="card">
-            <h3>👮 Moderator Tools</h3>
-            <p>Powerful tools for staff teams to manage incidents quickly.</p>
-        </div>
-
-    </div>
-</section>
-
-<div class="footer">
-    © 2026 YMAL.space • Protecting Discord Communities
-</div>
+            document.addEventListener('click', (e) => {
+                if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
-```
