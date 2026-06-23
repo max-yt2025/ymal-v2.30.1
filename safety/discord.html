@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Safety Hub - YMAL.space</title>
+    <meta name="description" content="Learn how to keep your Discord server and account safe with YMAL's Discord safety guide and protection bot.">
+    <link rel="icon" href="/Copilot_20260118_155318.png">
+    <style>
+        /* ===== RED & BLUE THEME ===== */
+        :root {
+            --primary-blue: #2563eb;
+            --primary-red: #dc2626;
+            --dark-blue: #1e40af;
+            --dark-red: #b91c1c;
+            --light-blue: #dbeafe;
+            --light-red: #fee2e2;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background: #f9fafb;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary-blue);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon-custom {
+            width: 40px;
+            height: 40px;
+            background: url('/Copilot_20260118_155318.png') no-repeat center center;
+            background-size: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 8px 0;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-link.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-blue);
+            border-radius: 3px;
+        }
+
+        .search-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            margin-left: 20px;
+        }
+
+        .search-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        /* ===== DISCORD NAV ===== */
+        .discord-nav {
+            background: #111827;
+            border-bottom: 3px solid #5865F2;
+            padding: 0;
+        }
+
+        .discord-nav .container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 14px 20px;
+            flex-wrap: wrap;
+        }
+
+        .discord-nav-link {
+            color: #9ca3af;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 6px 0;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+        }
+
+        .discord-nav-link:hover {
+            color: white;
+            border-bottom-color: #5865F2;
+        }
+
+        .discord-nav-link.active {
+            color: white;
+            border-bottom-color: #5865F2;
+        }
+
+        .discord-nav-link.bot-link {
+            background: linear-gradient(135deg, #5865F2, #4752C4);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 20px;
+            border-bottom: none;
+        }
+
+        .discord-nav-link.bot-link:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #4752C4, #3b45a5);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-discord {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-discord::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 150%;
+            background: linear-gradient(135deg, rgba(219, 234, 254, 0.3), rgba(254, 226, 226, 0.3));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            z-index: -1;
+        }
+
+        .hero-discord h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero-discord > .container > p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ===== SAFETY GRID ===== */
+        .safety-grid-section {
+            padding: 60px 0 80px;
+            background: var(--white);
+        }
+
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .safety-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: left;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .safety-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-red));
+        }
+
+        .safety-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--light-blue);
+        }
+
+        .safety-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .safety-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .safety-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .safety-card ul {
+            color: var(--text-light);
+            padding-left: 20px;
+            line-height: 2;
+        }
+
+        .safety-card ul li {
+            list-style-type: none;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .safety-card ul li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+        }
+
+        .safety-card .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .safety-card .read-more:hover {
+            color: var(--dark-blue);
+            padding-left: 5px;
+        }
+
+        .safety-card .bot-cta {
+            display: inline-block;
+            margin-top: 10px;
+            background: linear-gradient(135deg, #5865F2, #4752C4);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .safety-card .bot-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+        }
+
+        .safety-card.discord-blue::before {
+            background: linear-gradient(90deg, #5865F2, #4752C4);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 60%;
+            height: 150%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-blue);
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            color: var(--dark-blue);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-logo-icon-custom {
+            width: 40px;
+            height: 40px;
+            background: url('/Copilot_20260118_155318.png') no-repeat center center;
+            background-size: contain;
+            filter: brightness(0) invert(1);
+            border-radius: 8px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .footer-tagline {
+            color: #9ca3af;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #374151;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-link {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-link:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+            .hero-discord h1 {
+                font-size: 3rem;
+            }
+            .discord-nav .container {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                border-radius: 0 0 10px 10px;
+                gap: 15px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .header-container {
+                padding: 15px;
+            }
+            .hero-discord h1 {
+                font-size: 2.5rem;
+            }
+            .safety-grid {
+                grid-template-columns: 1fr;
+            }
+            .discord-nav .container {
+                gap: 15px;
+                padding: 12px 15px;
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+            .discord-nav-link {
+                font-size: 0.85rem;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .hero-discord h1 {
+                font-size: 2rem;
+            }
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="/" class="logo-container">
+                <div class="logo-icon-custom"></div>
+                <div class="logo-text">Ymal.space</div>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle">☰</button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+                <a href="/privacy-policy.html" class="nav-link">Privacy</a>
+                <a href="/terms.html" class="nav-link">Terms</a>
+                <a href="https://search.ymal.space" class="search-button">Search →</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Discord Navigation -->
+    <nav class="discord-nav">
+        <div class="container">
+            <a href="/safety/discord.html" class="discord-nav-link active">📖 101 Discord Safety</a>
+            <a href="#server-safety" class="discord-nav-link">🛡️ Server Safety</a>
+            <a href="#account-safety" class="discord-nav-link">🔒 Account Safety</a>
+            <a href="/safety/discord/discord-bot.html" class="discord-nav-link bot-link">🤖 Our Discord Bot</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-discord">
+        <div class="container">
+            <h1>Discord Safety Hub</h1>
+            <p>
+                Your complete guide to staying safe on Discord — protect your server,
+                secure your account, and learn about YMAL's Discord protection bot.
+            </p>
+        </div>
+    </section>
+
+    <!-- Safety Grid -->
+    <section class="safety-grid-section">
+        <div class="container">
+            <div class="safety-grid">
+
+                <!-- 101 Discord Safety -->
+                <div class="safety-card" id="101-safety">
+                    <span class="safety-icon">📖</span>
+                    <h2>101 Discord Safety</h2>
+                    <p>
+                        Understanding the basics of Discord safety is the first step to protecting
+                        yourself and your community. Here's what every Discord user should know:
+                    </p>
+                    <ul>
+                        <li><strong>Never share your token</strong> — Anyone with your token can control your account.</li>
+                        <li><strong>Enable 2FA</strong> — Two-factor authentication adds an extra layer of security.</li>
+                        <li><strong>Be careful with links</strong> — Scammers use fake Nitro and game giveaways to steal accounts.</li>
+                        <li><strong>Verify bots</strong> — Only invite bots from trusted sources with proper verification.</li>
+                        <li><strong>Use moderation bots</strong> — Automated tools like YMAL Anti-Raid can protect your server 24/7.</li>
+                    </ul>
+                    <a href="#server-safety" class="read-more">Learn more about server safety →</a>
+                </div>
+
+                <!-- Server Safety -->
+                <div class="safety-card discord-blue" id="server-safety">
+                    <span class="safety-icon">🛡️</span>
+                    <h2>How to Keep Your Discord Server Safe</h2>
+                    <p>
+                        Running a Discord server comes with responsibilities. Here's how to protect
+                        your community from raids, spam, and malicious activity:
+                    </p>
+                    <ul>
+                        <li><strong>Set up verification levels</strong> — Use phone verification or email verification for new members.</li>
+                        <li><strong>Use moderation bots</strong> — Bots like YMAL Anti-Raid can automatically detect and stop threats.</li>
+                        <li><strong>Create a moderation team</strong> — Train trusted members to handle incidents quickly.</li>
+                        <li><strong>Use raid protection</strong> — Enable slowmode, verification gates, and lockdown tools.</li>
+                        <li><strong>Regularly audit roles</strong> — Remove unused roles and ensure admins have 2FA enabled.</li>
+                    </ul>
+                    <a href="/safety/discord/discord-bot.html" class="bot-cta">🤖 Try YMAL Anti-Raid Bot</a>
+                </div>
+
+                <!-- Account Safety -->
+                <div class="safety-card" id="account-safety">
+                    <span class="safety-icon">🔒</span>
+                    <h2>How to Keep Your Discord Account Safe</h2>
+                    <p>
+                        Your Discord account holds access to all your servers and messages.
+                        Here's how to keep it secure:
+                    </p>
+                    <ul>
+                        <li><strong>Enable 2FA</strong> — Use Google Authenticator or Authy for two-factor authentication.</li>
+                        <li><strong>Use a strong password</strong> — Avoid common passwords and use a password manager.</li>
+                        <li><strong>Never click suspicious links</strong> — Fake Nitro and game giveaways are common scams.</li>
+                        <li><strong>Don't share your token</strong> — Your token is like a password — keep it secret.</li>
+                        <li><strong>Revoke unused sessions</strong> — Regularly check active sessions in Discord settings.</li>
+                    </ul>
+                    <a href="https://support.discord.com/hc/en-us/articles/360041983871" class="read-more" target="_blank">Official Discord Security Guide →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Need Extra Protection?</h2>
+            <p class="cta-text">
+                Join 580+ members across 5 servers already protected by YMAL Anti-Raid.
+                Free, fast, and built to keep your community safe.
+            </p>
+            <a href="/safety/discord/discord-bot.html" class="cta-button">
+                Learn About Our Bot →
+            </a>
+            <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">
+                Free to use • 24/7 protection • No server limits
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <div class="footer-logo-icon-custom"></div>
+                        <div class="footer-logo-text">Ymal.space</div>
+                    </a>
+                    <p class="footer-tagline">
+                        A privacy-first search engine that protects your data while delivering accurate results.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">𝕏</a>
+                        <a href="#" class="social-link">𝔽</a>
+                        <a href="#" class="social-link">𝕀</a>
+                        <a href="#" class="social-link">𝔾</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <div class="footer-links">
+                        <a href="https://search.ymal.space" class="footer-link">Search Engine</a>
+                        <a href="/about.html" class="footer-link">Features</a>
+                        <a href="/privacy-policy.html" class="footer-link">Privacy</a>
+                        <a href="/terms.html" class="footer-link">Terms</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <div class="footer-links">
+                        <a href="/about.html" class="footer-link">About Us</a>
+                        <a href="/contact.html" class="footer-link">Contact</a>
+                        <a href="/blog.html" class="footer-link">Blog</a>
+                        <a href="/careers.html" class="footer-link">Careers</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Legal</h4>
+                    <div class="footer-links">
+                        <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
+                        <a href="/terms.html" class="footer-link">Terms of Service</a>
+                        <a href="/cookie-policy.html" class="footer-link">Cookie Policy</a>
+                        <a href="/gdpr.html" class="footer-link">GDPR</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Ymal.space. All rights reserved. Search privately, live freely.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
