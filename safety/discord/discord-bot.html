@@ -3,20 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YMAL Safety & Protection</title>
-    <meta name="description" content="YMAL Safety provides Discord server protection, website security, and privacy-focused tools to keep your communities safe.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="Copilot_20260118_155318.png">
+    <title>YMAL Anti-Raid - Discord Protection Bot</title>
+    <meta name="description" content="YMAL Anti-Raid protects Discord servers from raids, spam, nukes, and scams. Currently protecting 580+ members across 5 servers.">
+    <link rel="icon" href="/Copilot_20260118_155318.png">
     <style>
-        /* Additional styles for safety page */
-        .hero-safety {
+        /* ===== RED & BLUE THEME ===== */
+        :root {
+            --primary-blue: #2563eb;
+            --primary-red: #dc2626;
+            --dark-blue: #1e40af;
+            --dark-red: #b91c1c;
+            --light-blue: #dbeafe;
+            --light-red: #fee2e2;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background: #f9fafb;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary-blue);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon-custom {
+            width: 40px;
+            height: 40px;
+            background: url('/Copilot_20260118_155318.png') no-repeat center center;
+            background-size: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 8px 0;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .search-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            margin-left: 20px;
+        }
+
+        .search-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        /* ===== HERO BOT ===== */
+        .hero-bot {
             padding: 80px 0 60px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero-safety::before {
+        .hero-bot::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -28,7 +148,7 @@
             z-index: -1;
         }
 
-        .hero-safety h1 {
+        .hero-bot h1 {
             font-size: 3.8rem;
             font-weight: 900;
             margin-bottom: 15px;
@@ -39,22 +159,113 @@
             line-height: 1.2;
         }
 
-        .hero-safety p {
+        .hero-bot > .container > p {
             font-size: 1.3rem;
             color: var(--text-light);
             max-width: 650px;
-            margin: 0 auto;
+            margin: 0 auto 30px;
             line-height: 1.6;
         }
 
-        .safety-grid {
+        .bot-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 40px 0 35px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bot-stat-item {
+            text-align: center;
+        }
+
+        .bot-stat-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            display: block;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bot-stat-label {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 25px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(37, 99, 235, 0.45);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-blue);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: var(--light-blue);
+        }
+
+        /* ===== FEATURES ===== */
+        .features {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            color: var(--text-dark);
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            padding: 60px 0;
         }
 
-        .safety-card {
+        .feature-card {
             background: var(--white);
             padding: 40px 30px;
             border-radius: 15px;
@@ -66,7 +277,7 @@
             overflow: hidden;
         }
 
-        .safety-card::before {
+        .feature-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -76,82 +287,256 @@
             background: linear-gradient(90deg, var(--primary-blue), var(--primary-red));
         }
 
-        .safety-card:hover {
+        .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             border-color: var(--light-blue);
         }
 
-        .safety-icon {
+        .feature-icon {
             font-size: 3.5rem;
-            margin-bottom: 25px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        .safety-card h2 {
+        .feature-card h3 {
             font-size: 1.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: var(--text-dark);
         }
 
-        .safety-card p {
+        .feature-card p {
             color: var(--text-light);
             line-height: 1.7;
         }
 
-        .safety-stats {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin: 40px 0 20px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .safety-stat-item {
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 100px 0;
             text-align: center;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
 
-        .safety-stat-number {
-            font-size: 2.2rem;
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 60%;
+            height: 150%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
             font-weight: 800;
-            display: block;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-red));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 20px;
+            position: relative;
         }
 
-        .safety-stat-label {
-            font-size: 0.85rem;
-            color: var(--text-light);
+        .cta-text {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-blue);
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            color: var(--dark-blue);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-logo-icon-custom {
+            width: 40px;
+            height: 40px;
+            background: url('/Copilot_20260118_155318.png') no-repeat center center;
+            background-size: contain;
+            filter: brightness(0) invert(1);
+            border-radius: 8px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .footer-tagline {
+            color: #9ca3af;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #374151;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-link {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-link:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+            .hero-bot h1 {
+                font-size: 3rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .hero-safety h1 {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                border-radius: 0 0 10px 10px;
+                gap: 15px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .header-container {
+                padding: 15px;
+            }
+            .hero-bot h1 {
                 font-size: 2.5rem;
             }
-            .hero-safety {
-                padding: 50px 20px;
-            }
-            .safety-stats {
-                gap: 25px;
-            }
-            .safety-grid {
+            .features-grid {
                 grid-template-columns: 1fr;
             }
-            .safety-card {
-                padding: 30px 20px;
+            .bot-stats {
+                gap: 30px;
+            }
+            .bot-stat-number {
+                font-size: 2.2rem;
             }
         }
 
         @media (max-width: 576px) {
-            .hero-safety h1 {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .hero-bot h1 {
                 font-size: 2rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .cta-title {
+                font-size: 2rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
             }
         }
     </style>
@@ -170,82 +555,95 @@
 
             <nav class="nav-links" id="navLinks">
                 <a href="/" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="privacy-policy.html" class="nav-link">Privacy</a>
-                <a href="terms.html" class="nav-link">Terms</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/contact.html" class="nav-link">Contact</a>
+                <a href="/privacy-policy.html" class="nav-link">Privacy</a>
+                <a href="/terms.html" class="nav-link">Terms</a>
                 <a href="https://search.ymal.space" class="search-button">Search →</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-safety">
+    <section class="hero-bot">
         <div class="container">
-            <h1>🛡️ YMAL Safety &amp; Protection</h1>
+            <h1>🤖 YMAL Anti-Raid</h1>
             <p>
-                Protecting Discord Servers &amp; Websites — Free, Secure, and Privacy-Focused
+                Advanced Discord protection bot against raids, nukes, scam links,
+                fake Nitro scams, spam attacks, and malicious activity.
             </p>
 
-            <div class="safety-stats">
-                <div class="safety-stat-item">
-                    <span class="safety-stat-number">🛡️</span>
-                    <span class="safety-stat-label">Full Protection</span>
+            <div class="bot-stats">
+                <div class="bot-stat-item">
+                    <span class="bot-stat-number">580+</span>
+                    <span class="bot-stat-label">Members Protected</span>
                 </div>
-                <div class="safety-stat-item">
-                    <span class="safety-stat-number">🔒</span>
-                    <span class="safety-stat-label">Privacy First</span>
+                <div class="bot-stat-item">
+                    <span class="bot-stat-number">5</span>
+                    <span class="bot-stat-label">Servers Active</span>
                 </div>
-                <div class="safety-stat-item">
-                    <span class="safety-stat-number">💰</span>
-                    <span class="safety-stat-label">100% Free</span>
+                <div class="bot-stat-item">
+                    <span class="bot-stat-number">🛡️</span>
+                    <span class="bot-stat-label">24/7 Protection</span>
                 </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a class="btn-primary"
+                   href="https://discord.com/oauth2/authorize?client_id=1519007147881398363"
+                   target="_blank">
+                   Invite Bot → 
+                </a>
+                <a class="btn-secondary"
+                   href="https://discord.gg/hske9h6dAM"
+                   target="_blank">
+                   Support Server
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Safety Features -->
+    <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2 class="section-title">Protection Features</h2>
+            <h2 class="section-title">Bot Features</h2>
 
-            <div class="safety-grid">
+            <div class="features-grid">
 
-                <div class="safety-card">
-                    <span class="safety-icon">🛡️</span>
-                    <h2>Discord Server Protection</h2>
-                    <p>
-                        YMAL Anti-Raid helps protect Discord communities from raids, spam attacks,
-                        fake Nitro scams, nukes, and malicious users. We automatically detect threats,
-                        lock down servers when needed, and alert staff instantly.
-                    </p>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Raid Detection</h3>
+                    <p>Detects mass spam, raids, and suspicious activity automatically before they cause damage to your server.</p>
                 </div>
 
-                <div class="safety-card">
-                    <span class="safety-icon">🌐</span>
-                    <h2>Website Protection</h2>
-                    <p>
-                        YMAL also helps protect websites from spam attacks, bot floods, and malicious traffic.
-                        Our system focuses on safety, privacy, and keeping your platform stable and secure.
-                    </p>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Automatic Lockdown</h3>
+                    <p>Locks channels and servers instantly when attacks are detected, stopping threats in their tracks.</p>
                 </div>
 
-                <div class="safety-card">
-                    <span class="safety-icon">🔒</span>
-                    <h2>Privacy First</h2>
-                    <p>
-                        YMAL.space is built with privacy in mind. We do not sell user data.
-                        We only use necessary information to keep systems safe and functional.
-                    </p>
+                <div class="feature-card">
+                    <span class="feature-icon">🚫</span>
+                    <h3>Scam Protection</h3>
+                    <p>Blocks fake Nitro scams, suspicious links, and phishing attempts to keep your community safe.</p>
                 </div>
 
-                <div class="safety-card">
-                    <span class="safety-icon">💰</span>
-                    <h2>Free Protection</h2>
-                    <p>
-                        Our core protection tools are free to use for all communities.
-                        We believe every server and website deserves security, no matter the size.
-                    </p>
+                <div class="feature-card">
+                    <span class="feature-icon">📋</span>
+                    <h3>Advanced Logging</h3>
+                    <p>Keeps detailed logs for moderation and investigations, giving you full visibility into incidents.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>Anti-Nuke</h3>
+                    <p>Protects against mass channel, role, and server destruction with proactive security measures.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">👮</span>
+                    <h3>Moderator Tools</h3>
+                    <p>Powerful tools for staff teams to manage incidents quickly and maintain server order.</p>
                 </div>
 
             </div>
@@ -255,14 +653,16 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2 class="cta-title">Keep Your Community Safe</h2>
+            <h2 class="cta-title">Protect Your Server Today</h2>
             <p class="cta-text">
-                Join thousands of communities already protected by YMAL's safety tools.
-                Free, secure, and built with privacy at its core.
+                Join 580+ members across 5 servers already protected by YMAL Anti-Raid.
+                It's free, fast, and keeps your community safe.
             </p>
-            <a href="/" class="cta-button">Learn More</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=1519007147881398363" class="cta-button" target="_blank">
+                Add Bot to Discord
+            </a>
             <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">
-                No hidden fees • Privacy guaranteed • Always free
+                Free to use • 24/7 protection • No server limits
             </p>
         </div>
     </section>
@@ -291,29 +691,29 @@
                     <h4 class="footer-heading">Product</h4>
                     <div class="footer-links">
                         <a href="https://search.ymal.space" class="footer-link">Search Engine</a>
-                        <a href="about.html" class="footer-link">Features</a>
-                        <a href="privacy-policy.html" class="footer-link">Privacy</a>
-                        <a href="terms.html" class="footer-link">Terms</a>
+                        <a href="/about.html" class="footer-link">Features</a>
+                        <a href="/privacy-policy.html" class="footer-link">Privacy</a>
+                        <a href="/terms.html" class="footer-link">Terms</a>
                     </div>
                 </div>
 
                 <div>
                     <h4 class="footer-heading">Company</h4>
                     <div class="footer-links">
-                        <a href="about.html" class="footer-link">About Us</a>
-                        <a href="contact.html" class="footer-link">Contact</a>
-                        <a href="blog.html" class="footer-link">Blog</a>
-                        <a href="careers.html" class="footer-link">Careers</a>
+                        <a href="/about.html" class="footer-link">About Us</a>
+                        <a href="/contact.html" class="footer-link">Contact</a>
+                        <a href="/blog.html" class="footer-link">Blog</a>
+                        <a href="/careers.html" class="footer-link">Careers</a>
                     </div>
                 </div>
 
                 <div>
                     <h4 class="footer-heading">Legal</h4>
                     <div class="footer-links">
-                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
-                        <a href="terms.html" class="footer-link">Terms of Service</a>
-                        <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
-                        <a href="gdpr.html" class="footer-link">GDPR</a>
+                        <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
+                        <a href="/terms.html" class="footer-link">Terms of Service</a>
+                        <a href="/cookie-policy.html" class="footer-link">Cookie Policy</a>
+                        <a href="/gdpr.html" class="footer-link">GDPR</a>
                     </div>
                 </div>
             </div>
