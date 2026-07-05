@@ -38,58 +38,103 @@
             font-size: 0.9rem;
         }
 
-        /* Notification Alert Banner Styling */
+        /* Side Notification Popup Styling */
         .notification-alert {
-            background: linear-gradient(135deg, #eff6ff, #fef2f2);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 12px 20px;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            max-width: 320px;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transform: translateX(120%);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .notification-alert.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .notification-top-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            align-items: flex-start;
+            gap: 10px;
         }
 
         .notification-content {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 10px;
         }
 
         .notification-badge {
             background-color: var(--primary-blue, #2563eb);
             color: white;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             padding: 2px 8px;
             border-radius: 20px;
             letter-spacing: 0.5px;
+            white-space: nowrap;
+            margin-top: 2px;
         }
 
         .notification-text {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            line-height: 1.4;
             color: var(--text-dark, #1e293b);
         }
 
         .notification-close-btn {
             background: transparent;
             border: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-light, #64748b);
             cursor: pointer;
-            padding: 4px 8px;
+            padding: 2px 6px;
             border-radius: 4px;
             transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            line-height: 1;
         }
 
         .notification-close-btn:hover {
             background-color: rgba(0, 0, 0, 0.05);
             color: var(--text-dark, #1e293b);
+        }
+
+        .notification-cta-btn {
+            display: inline-block;
+            text-align: center;
+            background: var(--primary-blue, #2563eb);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .notification-cta-btn:hover {
+            background: #1d4fd1;
+        }
+
+        @media (max-width: 480px) {
+            .notification-alert {
+                left: 16px;
+                right: 16px;
+                bottom: 16px;
+                max-width: none;
+            }
         }
     </style>
 </head>
@@ -153,12 +198,15 @@
         </div>
     </section>
 
-    <div id="homeNotificationAlert" class="notification-alert" style="display: none;">
-        <div class="notification-content">
-            <span class="notification-badge">NEW</span>
-            <span class="notification-text">Check out our latest deep dive review on <strong>LiteBoosts</strong>!</span>
+    <div id="homeNotificationAlert" class="notification-alert">
+        <div class="notification-top-row">
+            <div class="notification-content">
+                <span class="notification-badge">NEW</span>
+                <span class="notification-text">Check the newest blog! Super cheap Discord boosts on <strong>LiteBoosts.com</strong></span>
+            </div>
+            <button id="closeNotificationBtn" class="notification-close-btn" aria-label="Close notification">✕</button>
         </div>
-        <button id="closeNotificationBtn" class="notification-close-btn" aria-label="Close notification">✕</button>
+        <a href="https://ymal.space/blogs/super-cheap-discord-boosts/liteboosts" class="notification-cta-btn">Read the Blog →</a>
     </div>
 
     <!-- Features -->
@@ -320,20 +368,22 @@
             });
         }
 
-        // Notification banner logic
+        // Side notification popup logic
         document.addEventListener('DOMContentLoaded', () => {
             const alertBanner = document.getElementById('homeNotificationAlert');
             const closeBtn = document.getElementById('closeNotificationBtn');
 
-            // Show the banner only if the user hasn't dismissed it this session
+            // Slide the popup in after a short delay, only if not dismissed this session
             if (alertBanner && !sessionStorage.getItem('hideNotification')) {
-                alertBanner.style.display = 'flex';
+                setTimeout(() => {
+                    alertBanner.classList.add('show');
+                }, 1200);
             }
 
-            // Handle closing the banner
+            // Handle closing the popup
             if (closeBtn && alertBanner) {
                 closeBtn.addEventListener('click', () => {
-                    alertBanner.style.display = 'none';
+                    alertBanner.classList.remove('show');
                     // Save preference so it stays hidden for the rest of this session
                     sessionStorage.setItem('hideNotification', 'true');
                 });
