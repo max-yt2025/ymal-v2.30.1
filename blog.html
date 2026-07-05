@@ -3,124 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Ymal Search Insights</title>
+    <title>Blog - Ymal.space</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="Copilot_20260118_155318.png">
     <style>
-        .blog-header {
+        .page-header {
             padding: 80px 0 40px;
             text-align: center;
             background: linear-gradient(135deg, rgba(219, 234, 254, 0.3), rgba(254, 226, 226, 0.3));
         }
-        
+
+        .blog-feed-section {
+            padding: 60px 0;
+            background: white;
+        }
+
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
-            padding: 60px 0;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        
+
         .blog-card {
-            background: white;
+            background: var(--white, #ffffff);
             border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            border: 1px solid #e5e7eb;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-        
-        .blog-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
+            border-top: 4px solid var(--primary-blue);
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
         }
-        
-        .blog-content {
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .blog-card-content {
             padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
-        
-        .blog-category {
-            display: inline-block;
-            padding: 5px 15px;
-            background: var(--light-blue);
-            color: var(--primary-blue);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 15px;
+
+        .blog-card-meta {
+            font-size: 0.85rem;
+            color: var(--text-light, #64748b);
+            margin-bottom: 12px;
+            display: flex;
+            gap: 10px;
         }
-        
-        .blog-title {
-            font-size: 1.5rem;
+
+        .blog-card-title {
+            font-size: 1.4rem;
+            color: var(--text-dark, #1e293b);
             margin-bottom: 15px;
-            color: var(--text-dark);
             line-height: 1.4;
         }
-        
-        .blog-excerpt {
-            color: var(--text-light);
-            margin-bottom: 20px;
+
+        .blog-card-excerpt {
+            font-size: 1rem;
             line-height: 1.6;
+            color: var(--text-light, #64748b);
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
-        
-        .blog-meta {
-            display: flex;
-            justify-content: space-between;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            padding-top: 20px;
-            border-top: 1px solid #e5e7eb;
-        }
-        
-        .read-more {
+
+        .blog-card-link {
             color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: flex;
             align-items: center;
             gap: 5px;
         }
-        
-        .read-more:hover {
-            color: var(--dark-blue);
+
+        /* Grayed out placeholder style for upcoming articles */
+        .blog-card.placeholder {
+            border-top: 4px solid #cbd5e1;
+            opacity: 0.75;
+            cursor: default;
         }
-        
-        .newsletter {
-            padding: 60px 0;
-            background: var(--light-blue);
-            text-align: center;
-            border-radius: 15px;
-            margin: 40px 0;
-        }
-        
-        .newsletter-input {
-            padding: 15px;
-            border: 2px solid var(--primary-blue);
-            border-radius: 10px;
-            width: 300px;
-            max-width: 100%;
-            margin: 20px auto;
-            display: block;
-        }
-        
-        .coming-soon {
-            text-align: center;
-            padding: 100px 0;
-            color: var(--text-light);
+        .blog-card.placeholder:hover {
+            transform: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <a href="/" class="logo-container">
@@ -133,154 +107,44 @@
             <nav class="nav-links" id="navLinks">
                 <a href="/" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
-                <a href="blog.html" class="nav-link active">Blog</a>
-                <a href="careers.html" class="nav-link">Careers</a>
                 <a href="contact.html" class="nav-link">Contact</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy</a>
+                <a href="terms.html" class="nav-link">Terms</a>
                 <a href="https://search.ymal.space" class="search-button">Search →</a>
             </nav>
         </div>
     </header>
 
-    <!-- Blog Header -->
-    <section class="blog-header">
+    <section class="page-header">
         <div class="container">
-            <h1 class="section-title">Ymal Blog</h1>
-            <p class="hero-subtitle">
-                Insights on privacy, search technology, and building a better web
-            </p>
+            <h1 class="section-title">Privacy & Community Blog</h1>
+            <p class="hero-subtitle">Insights, web transparency guides, and platform performance updates.</p>
         </div>
     </section>
 
-    <!-- Blog Posts -->
-    <main class="container">
-        <div class="blog-grid">
-            <!-- Post 1 -->
-            <article class="blog-card">
-                <div class="blog-image">🔍</div>
-                <div class="blog-content">
-                    <span class="blog-category">Privacy</span>
-                    <h3 class="blog-title">Why We Built a Search Engine That Doesn't Track You</h3>
-                    <p class="blog-excerpt">
-                        In a world where every search is monitored, we're creating an alternative 
-                        that respects your privacy. Learn about our philosophy and approach.
-                    </p>
-                    <div class="blog-meta">
-                        <span>January 15, 2024</span>
-                        <span>5 min read</span>
+    <section class="blog-feed-section">
+        <div class="container">
+            <div class="blog-grid">
+                
+                <a href="blogs/super-cheap-discord-boosts/liteboosts.html" class="blog-card">
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span>🛡️ Review</span>
+                            <span>•</span>
+                            <span>19/03/2025</span>
+                        </div>
+                        <h2 class="blog-card-title">LiteBoosts Review: Super Cheap Discord Boosts & Website View</h2>
+                        <p class="blog-card-excerpt">
+                            Looking to scale your Discord server level with custom features safely? Check out our complete review of LiteBoosts pricing, plans, and automation workflow.
+                        </p>
+                        <span class="blog-card-link">Read Article →</span>
                     </div>
-                </div>
-            </article>
-            
-            <!-- Post 2 -->
-            <article class="blog-card">
-                <div class="blog-image">⚡</div>
-                <div class="blog-content">
-                    <span class="blog-category">Technology</span>
-                    <h3 class="blog-title">How Ymal Delivers Fast Results Without Tracking</h3>
-                    <p class="blog-excerpt">
-                        Our technical architecture allows us to provide lightning-fast search 
-                        results while maintaining complete user privacy. Here's how it works.
-                    </p>
-                    <div class="blog-meta">
-                        <span>January 10, 2024</span>
-                        <span>7 min read</span>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- Post 3 -->
-            <article class="blog-card">
-                <div class="blog-image">🌍</div>
-                <div class="blog-content">
-                    <span class="blog-category">Future</span>
-                    <h3 class="blog-title">The Future of Private Search: What's Next for Ymal</h3>
-                    <p class="blog-excerpt">
-                        We're just getting started. Explore our roadmap and vision for the 
-                        future of privacy-focused search technology.
-                    </p>
-                    <div class="blog-meta">
-                        <span>January 5, 2024</span>
-                        <span>6 min read</span>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- Post 4 -->
-            <article class="blog-card">
-                <div class="blog-image">🛡️</div>
-                <div class="blog-content">
-                    <span class="blog-category">Security</span>
-                    <h3 class="blog-title">Understanding Search Engine Privacy: A Beginner's Guide</h3>
-                    <p class="blog-excerpt">
-                        Not all search engines are created equal. Learn what makes a search 
-                        engine truly private and how to protect your search data.
-                    </p>
-                    <div class="blog-meta">
-                        <span>December 28, 2023</span>
-                        <span>8 min read</span>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- Post 5 -->
-            <article class="blog-card">
-                <div class="blog-image">📈</div>
-                <div class="blog-content">
-                    <span class="blog-category">Growth</span>
-                    <h3 class="blog-title">Ymal's First Year: Lessons Learned & Milestones</h3>
-                    <p class="blog-excerpt">
-                        Reflecting on our first year building a privacy-first search engine. 
-                        Challenges, successes, and what we've learned along the way.
-                    </p>
-                    <div class="blog-meta">
-                        <span>December 20, 2023</span>
-                        <span>10 min read</span>
-                    </div>
-                </div>
-            </article>
-            
-            <!-- Post 6 -->
-            <article class="blog-card">
-                <div class="blog-image">💡</div>
-                <div class="blog-content">
-                    <span class="blog-category">Tips</span>
-                    <h3 class="blog-title">10 Ways to Enhance Your Online Privacy Today</h3>
-                    <p class="blog-excerpt">
-                        Simple, actionable steps you can take right now to improve your 
-                        online privacy and protect your personal data.
-                    </p>
-                    <div class="blog-meta">
-                        <span>December 15, 2023</span>
-                        <span>4 min read</span>
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <!-- Newsletter -->
-        <div class="newsletter">
-            <h3 style="color: var(--primary-blue); margin-bottom: 15px;">Stay Updated</h3>
-            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 20px;">
-                Subscribe to our newsletter for the latest updates on privacy, technology, 
-                and new features from Ymal.
-            </p>
-            <input type="email" class="newsletter-input" placeholder="Your email address">
-            <button class="cta-button" style="background: var(--primary-blue); color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer;">
-                Subscribe
-            </button>
-        </div>
-        
-        <!-- Coming Soon Note -->
-        <div class="coming-soon">
-            <h3 style="color: var(--text-dark); margin-bottom: 20px;">More Articles Coming Soon</h3>
-            <p style="max-width: 600px; margin: 0 auto;">
-                We're constantly writing about privacy, search technology, and building 
-                a better web. Check back regularly for new content.
-            </p>
-        </div>
-    </main>
+                </a>
 
-    <!-- Footer -->
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -292,12 +156,6 @@
                     <p class="footer-tagline">
                         A privacy-first search engine that protects your data while delivering accurate results.
                     </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">𝕏</a>
-                        <a href="#" class="social-link">𝔽</a>
-                        <a href="#" class="social-link">𝕀</a>
-                        <a href="#" class="social-link">𝔾</a>
-                    </div>
                 </div>
                 
                 <div>
@@ -311,28 +169,17 @@
                 </div>
                 
                 <div>
-                    <h4 class="footer-heading">Resources</h4>
+                    <h4 class="footer-heading">Company</h4>
                     <div class="footer-links">
-                        <a href="blog.html" class="footer-link">Blog</a>
-                        <a href="careers.html" class="footer-link">Careers</a>
+                        <a href="about.html" class="footer-link">About Us</a>
                         <a href="contact.html" class="footer-link">Contact</a>
-                        <a href="#" class="footer-link">Documentation</a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="footer-heading">Legal</h4>
-                    <div class="footer-links">
-                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
-                        <a href="terms.html" class="footer-link">Terms of Service</a>
-                        <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
-                        <a href="gdpr.html" class="footer-link">GDPR</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>© 2024 Ymal.space. All rights reserved. Search privately, live freely.</p>
+                <p>© 2026 Ymal.space. All rights reserved. Search privately, live freely.</p>
             </div>
         </div>
     </footer>
@@ -352,21 +199,6 @@
                 if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
                     navLinks.classList.remove('active');
                     menuToggle.textContent = '☰';
-                }
-            });
-        }
-        
-        // Newsletter subscription
-        const newsletterInput = document.querySelector('.newsletter-input');
-        const subscribeBtn = document.querySelector('.cta-button');
-        
-        if (subscribeBtn) {
-            subscribeBtn.addEventListener('click', () => {
-                if (newsletterInput.value && newsletterInput.value.includes('@')) {
-                    alert('Thank you for subscribing! You\'ll hear from us soon.');
-                    newsletterInput.value = '';
-                } else {
-                    alert('Please enter a valid email address.');
                 }
             });
         }
