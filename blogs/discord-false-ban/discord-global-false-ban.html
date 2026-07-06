@@ -1,309 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BREAKING: Discord False Ban Reports (Image Detection Issue 2026) | Ymal.space</title>
+    <title>BREAKING: Discord False Ban Reports (Image Detection Issue 2026) | Ymal.space</title>
 
-<link rel="stylesheet" href="../../style.css">
-<link rel="icon" href="../../Copilot_20260118_155318.png">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="../../Copilot_20260118_155318.png">
 
-<meta name="description" content="Reports suggest widespread Discord false bans linked to AI automated image detection systems flagging grids, Minecraft inventories, and game textures as CSAM.">
-<meta name="keywords" content="Discord false ban, Discord ban wave 2026, Discord image detection issue, Discord appeal, Discord suspension, Minecraft inventory Discord ban, AI moderation bug">
-<meta name="robots" content="index, follow">
+    <meta name="description" content="Reports suggest widespread Discord false bans linked to AI automated image detection systems flagging grids, Minecraft inventories, and game textures as CSAM.">
+    <meta name="keywords" content="Discord false ban, Discord ban wave 2026, Discord image detection issue, Discord appeal, Discord suspension, Minecraft inventory Discord ban, AI moderation bug">
+    <meta name="robots" content="index, follow">
 
-<meta property="og:title" content="BREAKING: Discord False Ban Reports (2026)">
-<meta property="og:description" content="Users report critical automated false bans linked to grid patterns, spreadsheets, and game textures.">
-<meta property="og:type" content="article">
+    <meta property="og:title" content="BREAKING: Discord False Ban Reports (2026)">
+    <meta property="og:description" content="Users report critical automated false bans linked to grid patterns, spreadsheets, and game textures.">
+    <meta property="og:type" content="article">
 
-<style>
-body {
-    background: #f6f7fb;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+    <style>
+        .page-header {
+            padding: 80px 0 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(219, 234, 254, 0.3), rgba(254, 226, 226, 0.3));
+        }
 
-.breaking {
-    background: linear-gradient(90deg, #ff3b30, #ff9500);
-    color: white;
-    text-align: center;
-    padding: 12px;
-    font-weight: bold;
-}
+        .breaking {
+            background: linear-gradient(90deg, #ff3b30, #ff9500);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
 
-.header {
-    background: white;
-    text-align: center;
-    padding: 60px 20px 30px;
-    border-bottom: 1px solid #eee;
-}
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background: white;
+        }
 
-.article-container { {
-    max-width: 900px;
-    margin: auto;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
+        .blog-meta {
+            font-size: 0.9rem;
+            color: var(--text-light, #64748b);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
 
-.meta {
-    font-size: 0.9rem;
-    color: #666;
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
+        .box {
+            background: #fff4f4;
+            border-left: 5px solid #ff3b30;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
 
-.box {
-    background: #fff4f4;
-    border-left: 5px solid #ff3b30;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 0 8px 8px 0;
-}
+        /* IMAGE GRID STYLE matching card system */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
 
-/* IMAGE GRID */
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-    margin-top: 20px;
-}
+        .image-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-.image-grid img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: 0.2s;
-}
+        .image-grid img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
 
-.image-grid img:hover {
-    transform: scale(1.03);
-}
+        h2 {
+            color: var(--text-dark, #1e293b);
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+            border-left: 4px solid #ff3b30;
+            padding-left: 12px;
+        }
 
-h2 {
-    border-left: 4px solid #ff3b30;
-    padding-left: 10px;
-    margin-top: 35px;
-}
+        p, ul, ol {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light, #64748b);
+            margin-bottom: 20px;
+        }
 
-p, ul, ol {
-    line-height: 1.8;
-    color: #333;
-    font-size: 1.05rem;
-}
+        li {
+            margin-bottom: 10px;
+        }
 
-li {
-    margin-bottom: 8px;
-}
+        blockquote {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary-blue, #3b82f6);
+            margin: 30px 0;
+            padding: 20px;
+            font-style: italic;
+            border-radius: 0 12px 12px 0;
+        }
 
-.tag {
-    background: #eee;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin-right: 5px;
-    display: inline-block;
-    margin-top: 5px;
-}
+        /* Tag cloud matching liteboosts system */
+        .tag-cloud {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
 
-.warning-alert {
-    background: #fff9e6;
-    border-left: 5px solid #ff9500;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 0 8px 8px 0;
-}
-</style>
+        .tag {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        .warning-alert {
+            background: #fff9e6;
+            border-left: 5px solid #ff9500;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <div class="container header-container">
-        <a href="/" class="logo-container">
-            <div class="logo-icon-custom"></div>
-            <div class="logo-text">Ymal.space</div>
-        </a>
+    <header>
+        <div class="container header-container">
+            <a href="/" class="logo-container">
+                <div class="logo-icon-custom"></div>
+                <div class="logo-text">Ymal.space</div>
+            </a>
 
-        <button class="menu-toggle" id="menuToggle">☰</button>
+            <button class="menu-toggle" id="menuToggle">☰</button>
 
-        <nav class="nav-links" id="navLinks">
-            <a href="/" class="nav-link">Home</a>
-            <a href="../../about.html" class="nav-link">About</a>
-            <a href="../../contact.html" class="nav-link">Contact</a>
-            <a href="../../privacy-policy.html" class="nav-link">Privacy</a>
-            <a href="../../terms.html" class="nav-link">Terms</a>
-            <a href="https://search.ymal.space" class="search-button">Search →</a>
-        </nav>
+            <nav class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <a href="../../about.html" class="nav-link">About</a>
+                <a href="../../contact.html" class="nav-link">Contact</a>
+                <a href="../../privacy-policy.html" class="nav-link">Privacy</a>
+                <a href="../../terms.html" class="nav-link">Terms</a>
+                <a href="https://search.ymal.space" class="search-button">Search →</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breaking">
+        🚨 BREAKING: Discord False Ban Wave (Automated System Misfires)
     </div>
-</header>
 
-<div class="breaking">
-🚨 BREAKING: Discord False Ban Wave (Automated System Misfires)
-</div>
+    <section class="page-header">
+        <div class="container">
+            <h1 class="section-title" style="max-width: 800px; margin: 0 auto; line-height: 1.3;">Discord False Ban Reports Linked to Image Detection Systems — Community Evidence</h1>
+        </div>
+    </section>
 
-<div class="header">
-<h1>Discord False Ban Reports Linked to Image Detection Systems — Community Evidence</h1>
-</div>
+    <main class="article-container">
+        
+        <div class="blog-meta">
+            <span>🛡️ Platform Report</span>
+            <span>•</span>
+            <span>📅 July 2026</span>
+            <span>•</span>
+            <span>⏱️ 5–6 min read</span>
+        </div>
 
-<div class="article-container">
-    
-<div class="meta">
-<span>🛡️ Platform Report</span>
-<span>•</span>
-<span>📅 July 2026</span>
-<span>•</span>
-<span>⏱️ 5–6 min read</span>
-</div>
+        <div class="box">
+            <strong style="color: #ff3b30;">CRITICAL UPDATE:</strong> An apparent critical vulnerability or bug within Discord's automated AI moderation system is triggering permanent account bans for "Child Safety" violations. User reports indicate the AI is falsely flagging normal images featuring grid patterns as Child Sexual Abuse Material (CSAM).
+        </div>
 
-<div class="box">
-<strong>CRITICAL CRASH COURSE:</strong> An apparent critical vulnerability or bug within Discord's automated AI moderation system is triggering permanent account bans for "Child Safety" violations. User reports indicate the AI is falsely flagging normal images featuring grid patterns as Child Sexual Abuse Material (CSAM).
-</div>
+        <h2>What Users Are Reporting on X (formerly Twitter)</h2>
+        <p>
+            A sudden and severe wave of false account terminations has hit the platform. According to dozens of user testimonies gathered from online spaces, sending seemingly harmless media can cause an instant, automated ban. The common thread among these bans is the presence of <strong>structured grid patterns</strong> within the uploaded images. 
+        </p>
+        <p>
+            Impacted users report being flagged for uploading completely ordinary items, including:
+        </p>
+        <ul style="padding-left: 20px;">
+            <li><strong>Minecraft Inventories</strong> and user interfaces.</li>
+            <li><strong>Spreadsheets</strong> and mathematical grids.</li>
+            <li><strong>Chessboards</strong> and strategy game layouts.</li>
+            <li><strong>Game Textures</strong> (such as transparent gray/white checkerboards used by developers).</li>
+            <li>Large repetitive collages (e.g., a massive grid wall of character faces like Michael De Santa from GTA 5).</li>
+        </ul>
 
-<h2>What Users Are Reporting on X (formerly Twitter)</h2>
-<p>
-A sudden and severe wave of false account terminations has hit the platform. According to dozens of user testimonies gathered from online spaces, sending seemingly harmless media can cause an instant, automated ban. The common thread among these bans is the presence of <strong>structured grid patterns</strong> within the uploaded images. 
-</p>
-<p>
-Impacted users report being flagged for uploading completely ordinary items, including:
-</p>
-<ul>
-    <li><strong>Minecraft Inventories</strong> and user interfaces.</li>
-    <li><strong>Spreadsheets</strong> and mathematical grids.</li>
-    <li><strong>Chessboards</strong> and strategy game layouts.</li>
-    <li><strong>Game Textures</strong> (such as transparent gray/white checkerboards used by developers).</li>
-    <li>Large repetitive collages (e.g., a massive grid wall of character faces like Michael De Santa from GTA 5).</li>
-</ul>
+        <div class="warning-alert">
+            <strong style="color: #b45309;">⚠️ Urgent Safety Advice for Users:</strong> To keep your account safe, it is highly recommended <strong>NOT to send any images or GIFs</strong> across Discord until this vulnerability is officially patched. If you are a server owner or Administrator, consider temporarily disabling image, GIF, and embed permissions for regular members to protect your community from accidental bans.
+        </div>
 
-<div class="warning-alert">
-    <strong>⚠️ Urgent Safety Advice for Users:</strong> To keep your account safe, it is highly recommended <strong>NOT to send any images or GIFs</strong> across Discord until this vulnerability is officially patched. If you are a server owner or Administrator, consider temporarily disabling image, GIF, and embed permissions for regular members to protect your community from accidental bans.
-</div>
+        <h2>Reported Evidence (User Submitted Images)</h2>
 
-<h2>Reported Evidence (User Submitted Images)</h2>
+        <div class="image-grid">
+            <img src="https://pbs.twimg.com/media/HMjmDeCXMAA68JY?format=jpg&name=small" alt="Discord false ban report evidence 1">
+            <img src="https://x.com/madinstance/status/2074049719278444734/photo/1" alt="Discord false ban report evidence 2">
+            <img src="https://pbs.twimg.com/media/HL2LvbsW4AEWJ7Y?format=jpg&name=large" alt="Discord moderation false positive 3">
+            <img src="https://pbs.twimg.com/media/HMgJdm3XYAAUe0c?format=jpg&name=small" alt="Discord ban system report 4">
+            <img src="https://pbs.twimg.com/media/HMaopYSWYAAQnEh?format=jpg&name=small" alt="Discord false ban discussion 5">
+            <img src="https://x.com/LordJosh286/status/2074172848776581535/photo/1" alt="Discord user ban report 6">
+            <img src="https://cdn.discordapp.com/attachments/1518980801897824266/1523756813864927334/image.png?ex=6a4d449e&is=6a4bf31e&hm=775dcbcabac547d46586a60e1586de63814513f0bf3a48fad844be2c962f89ff" alt="Discord logo minecraft inventory ban example">
+        </div>
 
-<div class="image-grid">
-<img src="https://pbs.twimg.com/media/HMjmDeCXMAA68JY?format=jpg&name=small" alt="Discord false ban report evidence 1">
-<img src="https://x.com/madinstance/status/2074049719278444734/photo/1" alt="Discord false ban report evidence 2">
-<img src="https://pbs.twimg.com/media/HL2LvbsW4AEWJ7Y?format=jpg&name=large" alt="Discord moderation false positive 3">
-<img src="https://pbs.twimg.com/media/HMgJdm3XYAAUe0c?format=jpg&name=small" alt="Discord ban system report 4">
-<img src="https://pbs.twimg.com/media/HMaopYSWYAAQnEh?format=jpg&name=small" alt="Discord false ban discussion 5">
-<img src="https://x.com/LordJosh286/status/2074172848776581535/photo/1" alt="Discord user ban report 6">
-<img src="https://cdn.discordapp.com/attachments/1518980801897824266/1523756813864927334/image.png?ex=6a4d449e&is=6a4bf31e&hm=775dcbcabac547d46586a60e1586de63814513f0bf3a48fad844be2c962f89ff" alt="Discord logo minecraft inventory ban example">
-</div>
+        <h2>The Root Cause: The "Shared Database" Hash Theory</h2>
+        <p>
+            While initial community panic blamed Discord's proprietary AI algorithms, technical evidence points to a much broader infrastructure flaw. 
+        </p>
+        <p>
+            An independent developer on <strong>itch.io</strong> noted that their site faced identical automated child abuse flags on plain gray grid images immediately after migrating their image hosting to <strong>Cloudflare</strong>. 
+        </p>
+        <p>
+            <strong>Why is this happening?</strong> Most large-scale web platforms utilize shared, industry-standard databases of digital fingerprints (hashes) of known illegal material. It appears that simple, tightly repeating patterns—like chessboards, transparent grids, and UI inventories—can generate a mathematical digital hash that accidentally matches a fingerprint inside the abuse tracking databases. If this shared verification layer is compromised, any platform dependent on it will misfire on grid patterns simultaneously.
+        </p>
 
-<h2>The Root Cause: The "Shared Database" Hash Theory</h2>
-<p>
-While initial community panic blamed Discord's proprietary AI algorithms, technical evidence points to a much broader infrastructure flaw. 
-</p>
-<p>
-An independent developer on <strong>itch.io</strong> noted that their site faced identical automated child abuse flags on plain gray grid images immediately after migrating their image hosting to <strong>Cloudflare</strong>. 
-</p>
-<p>
-<strong>Why is this happening?</strong> Most large-scale web platforms utilize shared, industry-standard databases of digital fingerprints (hashes) of known illegal material. It appears that simple, tightly repeating patterns—like chessboards, transparent grids, and UI inventories—can generate a mathematical digital hash that accidentally matches a fingerprint inside the abuse tracking databases. If this shared verification layer is compromised, any platform dependent on it will misfire on grid patterns simultaneously.
-</p>
+        <h2>Devastating Real-World Impacts</h2>
+        <blockquote>
+            "My account was wrongfully banned due to a bug detecting my GAME TEXTURES. I need my account back as I'm a game director and use Discord for all my communication..." 
+            <br><span style="font-size: 0.85rem; color: #64748b; font-style: normal; display: block; margin-top: 5px;">— Impacted Professional on X</span>
+        </blockquote>
+        <p>
+            Losing an account to false automated system triggers can be incredibly severe. For regular users, years of memories, friend lists, and communities disappear instantly. For professional developers, community managers, and game directors, it entirely cuts off their primary line of communication and business workflow.
+        </p>
 
-<h2>Devastating Real-World Impacts</h2>
-<blockquote>
-    "My account was wrongfully banned due to a bug detecting my GAME TEXTURES. I need my account back as I'm a game director and use Discord for all my communication..." 
-    <br><small>— Impacted Professional on X</small>
-</blockquote>
-<p>
-Losing an account to false automated system triggers can be incredibly severe. For regular users, years of memories, friend lists, and communities disappear instantly. For professional developers, community managers, and game directors, it entirely cuts off their primary line of communication and business workflow.
-</p>
+        <h2>The Current Appeal Crisis</h2>
+        <p>
+            Discord users are actively tagging official channels (<a href="https://x.com/discord" target="_blank" style="color: var(--primary-blue, #3b82f6); text-decoration: none;">@Discord</a> and <a href="https://x.com/discord_support" target="_blank" style="color: var(--primary-blue, #3b82f6); text-decoration: none;">@Discord_Support</a>) demanding human intervention. Currently, those attempting to appeal are receiving strictly automated responses, exacerbating frustration. The community is heavily rallying for AI-dependent moderation to be scaled back in favor of human review pipelines.
+        </p>
 
-<h2>The Current Appeal Crisis</h2>
-<p>
-Discord users are actively tagging official channels (<a href="https://x.com/discord" target="_blank">@Discord</a> and <a href="https://x.com/discord_support" target="_blank">@Discord_Support</a>) demanding human intervention. Currently, those attempting to appeal are receiving strictly automated responses, exacerbating frustration. The community is heavily rallying for AI-dependent moderation to be scaled back in favor of human review pipelines.
-</p>
+        <p>Official Appeal Portal: <a href="https://dis.gd/appeals" target="_blank" style="color: var(--primary-blue, #3b82f6); font-weight: bold; text-decoration: none;">https://dis.gd/appeals</a></p>
 
-<p>Official Appeal Portal: <a href="https://dis.gd/appeals" target="_blank">https://dis.gd/appeals</a></p>
+        <h2>Final Summary & Outlook</h2>
+        <p>
+            Discord has not yet formally issued a statement or acknowledged the grid-hash bug. Because of the risk of automated, un-reviewable permanent bans, users should treat image uploads with extreme caution. Avoid posting screenshots of inventory menus, checkered backgrounds, or spreadsheet data until an official fix is confirmed.
+        </p>
 
-<h2>Final Summary & Outlook</h2>
-<p>
-Discord has not yet formally issued a statement or acknowledged the grid-hash bug. Because of the risk of automated, un-reviewable permanent bans, users should treat image uploads with extreme caution. Avoid posting screenshots of inventory menus, checkered backgrounds, or spreadsheet data until an official fix is confirmed.
-</p>
+        <div class="tag-cloud">
+            <span class="tag">discord</span>
+            <span class="tag">false ban</span>
+            <span class="tag">minecraft</span>
+            <span class="tag">image detection</span>
+            <span class="tag">moderation</span>
+            <span class="tag">automod bug</span>
+            <span class="tag">cloudflare</span>
+        </div>
 
-<div>
-<span class="tag">discord</span>
-<span class="tag">false ban</span>
-<span class="tag">minecraft</span>
-<span class="tag">image detection</span>
-<span class="tag">moderation</span>
-<span class="tag">automod bug</span>
-<span class="tag">cloudflare</span>
-</div>
+    </main>
 
-</div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <div class="footer-logo-icon-custom"></div>
+                        <div class="footer-logo-text">Ymal.space</div>
+                    </a>
 
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="/" class="footer-logo">
-                    <div class="footer-logo-icon-custom"></div>
-                    <div class="footer-logo-text">Ymal.space</div>
-                </a>
+                    <p class="footer-tagline">
+                        A privacy-first search engine that protects your data while delivering accurate results.
+                    </p>
+                </div>
 
-                <p class="footer-tagline">
-                    A privacy-first search engine that protects your data while delivering accurate results.
-                </p>
-            </div>
+                <div>
+                    <h4 class="footer-heading">Product</h4>
 
-            <div>
-                <h4 class="footer-heading">Product</h4>
+                    <div class="footer-links">
+                        <a href="https://search.ymal.space" class="footer-link">Search Engine</a>
+                        <a href="../../about.html" class="footer-link">Features</a>
+                        <a href="../../privacy-policy.html" class="footer-link">Privacy</a>
+                        <a href="../../terms.html" class="footer-link">Terms</a>
+                    </div>
+                </div>
 
-                <div class="footer-links">
-                    <a href="https://search.ymal.space" class="footer-link">Search Engine</a>
-                    <a href="../../about.html" class="footer-link">Features</a>
-                    <a href="../../privacy-policy.html" class="footer-link">Privacy</a>
-                    <a href="../../terms.html" class="footer-link">Terms</a>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+
+                    <div class="footer-links">
+                        <a href="../../about.html" class="footer-link">About Us</a>
+                        <a href="../../contact.html" class="footer-link">Contact</a>
+                    </div>
                 </div>
             </div>
 
-            <div>
-                <h4 class="footer-heading">Company</h4>
-
-                <div class="footer-links">
-                    <a href="../../about.html" class="footer-link">About Us</a>
-                    <a href="../../contact.html" class="footer-link">Contact</a>
-                </div>
+            <div class="footer-bottom">
+                <p>© 2026 Ymal.space. All rights reserved. Search privately, live freely.</p>
             </div>
         </div>
+    </footer>
 
-        <div class="footer-bottom">
-            <p>© 2026 Ymal.space. All rights reserved. Search privately, live freely.</p>
-        </div>
-    </div>
-</footer>
-
-</body>
     <script>
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
 
-if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuToggle.textContent =
-            navLinks.classList.contains('active') ? '✕' : '☰';
-    });
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
 
-    document.addEventListener('click', (e) => {
-        if (
-            !menuToggle.contains(e.target) &&
-            !navLinks.contains(e.target)
-        ) {
-            navLinks.classList.remove('active');
-            menuToggle.textContent = '☰';
+            document.addEventListener('click', (e) => {
+                if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                }
+            });
         }
-    });
-}
-</script>
+    </script>
+</body>
 </html>
