@@ -40,7 +40,7 @@ body {
     border-bottom: 1px solid #eee;
 }
 
-.container {
+.article-container { {
     max-width: 900px;
     margin: auto;
     background: white;
@@ -125,25 +125,25 @@ li {
 
 <body>
 
-    <header>
-        <div class="container header-container" style="margin-top: 0; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; max-width: 100%; border-bottom: 1px solid #eee; background: #fff;">
-            <a href="/" class="logo-container" style="display: flex; align-items: center; text-decoration: none; color: #333; font-weight: bold;">
-                <div class="logo-icon-custom"></div>
-                <div class="logo-text">Ymal.space</div>
-            </a>
-            
-            <button class="menu-toggle" id="menuToggle" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; display: none;">☰</button>
-            
-            <nav class="nav-links" id="navLinks" style="display: flex; gap: 15px; align-items: center;">
-                <a href="/" class="nav-link" style="text-decoration: none; color: #555;">Home</a>
-                <a href="../../about.html" class="nav-link" style="text-decoration: none; color: #555;">About</a>
-                <a href="../../contact.html" class="nav-link" style="text-decoration: none; color: #555;">Contact</a>
-                <a href="../../privacy-policy.html" class="nav-link" style="text-decoration: none; color: #555;">Privacy</a>
-                <a href="../../terms.html" class="nav-link" style="text-decoration: none; color: #555;">Terms</a>
-                <a href="https://search.ymal.space" class="search-button" style="text-decoration: none; background: #007aff; color: white; padding: 5px 15px; border-radius: 20px;">Search →</a>
-            </nav>
-        </div>
-    </header>
+<header>
+    <div class="container header-container">
+        <a href="/" class="logo-container">
+            <div class="logo-icon-custom"></div>
+            <div class="logo-text">Ymal.space</div>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">☰</button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="/" class="nav-link">Home</a>
+            <a href="../../about.html" class="nav-link">About</a>
+            <a href="../../contact.html" class="nav-link">Contact</a>
+            <a href="../../privacy-policy.html" class="nav-link">Privacy</a>
+            <a href="../../terms.html" class="nav-link">Terms</a>
+            <a href="https://search.ymal.space" class="search-button">Search →</a>
+        </nav>
+    </div>
+</header>
 
 <div class="breaking">
 🚨 BREAKING: Discord False Ban Wave (Automated System Misfires)
@@ -153,8 +153,8 @@ li {
 <h1>Discord False Ban Reports Linked to Image Detection Systems — Community Evidence</h1>
 </div>
 
-<div class="container">
-
+<div class="article-container">
+    
 <div class="meta">
 <span>🛡️ Platform Report</span>
 <span>•</span>
@@ -242,43 +242,68 @@ Discord has not yet formally issued a statement or acknowledged the grid-hash bu
 
 </div>
 
-    <footer>
-        <div class="container" style="max-width: 100%; margin-bottom: 0; background: #fff; border-top: 1px solid #eee; padding: 40px 20px;">
-            <div class="footer-content" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; max-width: 900px; margin: auto;">
-                <div class="footer-brand" style="flex: 1; min-width: 250px;">
-                    <a href="/" class="footer-logo" style="display: flex; align-items: center; text-decoration: none; color: #333; font-weight: bold;">
-                        <div class="footer-logo-icon-custom"></div>
-                        <div class="footer-logo-text">Ymal.space</div>
-                    </a>
-                    <p class="footer-tagline" style="color: #666; font-size: 0.95rem; margin-top: 10px;">
-                        A privacy-first search engine that protects your data while delivering accurate results.
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="footer-heading" style="margin-bottom: 15px; color: #333;">Product</h4>
-                    <div class="footer-links" style="display: flex; flex-direction: column; gap: 8px;">
-                        <a href="https://search.ymal.space" class="footer-link" style="text-decoration: none; color: #666;">Search Engine</a>
-                        <a href="../../about.html" class="footer-link" style="text-decoration: none; color: #666;">Features</a>
-                        <a href="../../privacy-policy.html" class="footer-link" style="text-decoration: none; color: #666;">Privacy</a>
-                        <a href="../../terms.html" class="footer-link" style="text-decoration: none; color: #666;">Terms</a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="footer-heading" style="margin-bottom: 15px; color: #333;">Company</h4>
-                    <div class="footer-links" style="display: flex; flex-direction: column; gap: 8px;">
-                        <a href="../../about.html" class="footer-link" style="text-decoration: none; color: #666;">About Us</a>
-                        <a href="../../contact.html" class="footer-link" style="text-decoration: none; color: #666;">Contact</a>
-                    </div>
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="footer-logo">
+                    <div class="footer-logo-icon-custom"></div>
+                    <div class="footer-logo-text">Ymal.space</div>
+                </a>
+
+                <p class="footer-tagline">
+                    A privacy-first search engine that protects your data while delivering accurate results.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="footer-heading">Product</h4>
+
+                <div class="footer-links">
+                    <a href="https://search.ymal.space" class="footer-link">Search Engine</a>
+                    <a href="../../about.html" class="footer-link">Features</a>
+                    <a href="../../privacy-policy.html" class="footer-link">Privacy</a>
+                    <a href="../../terms.html" class="footer-link">Terms</a>
                 </div>
             </div>
-            
-            <div class="footer-bottom" style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #999; font-size: 0.85rem;">
-                <p>© 2026 Ymal.space. All rights reserved. Search privately, live freely.</p>
+
+            <div>
+                <h4 class="footer-heading">Company</h4>
+
+                <div class="footer-links">
+                    <a href="../../about.html" class="footer-link">About Us</a>
+                    <a href="../../contact.html" class="footer-link">Contact</a>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <div class="footer-bottom">
+            <p>© 2026 Ymal.space. All rights reserved. Search privately, live freely.</p>
+        </div>
+    </div>
+</footer>
 
 </body>
+    <script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.textContent =
+            navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+
+    document.addEventListener('click', (e) => {
+        if (
+            !menuToggle.contains(e.target) &&
+            !navLinks.contains(e.target)
+        ) {
+            navLinks.classList.remove('active');
+            menuToggle.textContent = '☰';
+        }
+    });
+}
+</script>
 </html>
