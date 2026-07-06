@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download YMAL Browser - Ymal.space</title>
+    <meta name="description" content="Download the Ymal Browser. Complete privacy out of the box with built-in tracking protection, zero ads, and ultra-fast private searching.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Copilot_20260118_155318.png">
+    <style>
+        /* Additional styles for download page */
+        .download-box {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 40px auto 0 auto;
+            text-align: center;
+        }
+
+        .dl-main-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--primary-blue, #2563eb);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 10px;
+            transition: transform 0.2s ease, background 0.2s ease;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .dl-main-btn:hover {
+            background: #1d4fd1;
+            transform: translateY(-2px);
+        }
+
+        .dl-info-text {
+            font-size: 0.9rem;
+            color: var(--text-light, #64748b);
+            margin-top: 8px;
+        }
+
+        .browser-preview-meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .meta-item {
+            font-size: 0.85rem;
+            color: var(--text-dark, #1e293b);
+        }
+
+        .meta-item strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--primary-blue, #2563eb);
+        }
+
+        /* Side Notification Popup Styling */
+        .notification-alert {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            max-width: 320px;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transform: translateX(120%);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .notification-alert.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .notification-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .notification-badge {
+            background-color: var(--primary-blue, #2563eb);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            margin-top: 2px;
+        }
+
+        .notification-text {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: var(--text-dark, #1e293b);
+        }
+
+        .notification-close-btn {
+            background: transparent;
+            border: none;
+            font-size: 1rem;
+            color: var(--text-light, #64748b);
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+
+        .notification-close-btn:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--text-dark, #1e293b);
+        }
+
+        .notification-cta-btn {
+            display: inline-block;
+            text-align: center;
+            background: var(--primary-blue, #2563eb);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .notification-cta-btn:hover {
+            background: #1d4fd1;
+        }
+
+        @media (max-width: 480px) {
+            .notification-alert {
+                left: 16px;
+                right: 16px;
+                bottom: 16px;
+                max-width: none;
+            }
+            .download-box {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="/" class="logo-container">
+                <div class="logo-icon-custom"></div>
+                <div class="logo-text">Ymal.space</div>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle">☰</button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy</a>
+                <a href="terms.html" class="nav-link">Terms</a>
+                <a href="https://search.ymal.space" class="search-button">Search →</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Ymal Browser <span style="display: block; font-size: 2.5rem; margin-top: 10px; font-weight: 600;">Browse Without Traces</span></h1>
+            <p class="hero-subtitle">
+                Experience the web at lightning speeds with native tracking blocklists, total cookie isolation, and our signature private engine built straight in.
+            </p>
+
+            <div class="download-box">
+                <a href="https://ymal.space/download/browser/YMAL%20Browser.application" class="dl-main-btn" download>
+                    <span>📥</span> Download Ymal Browser
+                </a>
+                <p class="dl-info-text">Compatible with Windows Desktop environments (.application installation package)</p>
+                
+                <div class="browser-preview-meta">
+                    <div class="meta-item">
+                        <strong>Version</strong>
+                        v1.0.4
+                    </div>
+                    <div class="meta-item">
+                        <strong>License</strong>
+                        100% Free
+                    </div>
+                    <div class="meta-item">
+                        <strong>Privacy</strong>
+                        No Telemetry
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="homeNotificationAlert" class="notification-alert">
+        <div class="notification-top-row">
+            <div class="notification-content">
+                <span class="notification-badge">NEW</span>
+                <span class="notification-text">Check the newest blog! Super cheap Discord boosts on <strong>LiteBoosts.com</strong></span>
+            </div>
+            <button id="closeNotificationBtn" class="notification-close-btn" aria-label="Close notification">✕</button>
+        </div>
+        <a href="https://ymal.space/blogs/super-cheap-discord-boosts/liteboosts" class="notification-cta-btn">Read the Blog →</a>
+    </div>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Built for Your Freedom</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Native Shielding</h3>
+                    <p class="feature-desc">
+                        Blocks analytical frameworks, trackers, and background fingerprints before they ever read your machine configuration.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Ultra Lightweight</h3>
+                    <p class="feature-desc">
+                        Stripped of bloatware and complex background rendering updates so your RAM stays completely open for tabs.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Direct Private Search</h3>
+                    <p class="feature-desc">
+                        The search bar hooks immediately into search.ymal.space over encrypted parameters—zero data storage or query retention.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
+    <div class="commonninja_component pid-c55e2dfb-3a50-4c54-92d5-c1f42e26399a"></div>
+
+    <section id="newsletter" style="background:#f1f1f1;padding:50px 20px;text-align:center;">
+        <h2 style="font-family:sans-serif;font-size:2rem;color:#333;margin-bottom:20px;">
+            Subscribe to Our Newsletter
+        </h2>
+        <p style="font-family:sans-serif;font-size:1rem;color:#555;margin-bottom:30px;">
+            Get updates and news from YMAL.space directly in your inbox. We respect your privacy.
+        </p>
+
+        <form action="https://476cc85c.sibforms.com/serve/MUIFACfRBduNZEZ-NMwsoCLKSfZSTILrFrmTm6Vo4_d_lYRg91DtFjEATwc0-fQiiEnz7ylq3F-U-TW-Bl6EkZNPUvB510lxhMbDKa4bu8UdUncOgTDwARMmLGMwSzuyyJ47_WbcAAT9-FJASqz2Cs80NfZ3qWBhr-aUEMl1zj45xwO_r8SNNF_WIy9DMFOFS7kVx-Pukx4OMSpPVQ==" method="post" style="max-width:400px;margin:0 auto;display:flex;flex-direction:column;gap:10px;">
+            <input
+                type="email"
+                name="EMAIL"
+                placeholder="Enter your email"
+                required
+                style="padding:12px;border-radius:6px;border:1px solid #ccc;font-size:1rem;"
+            >
+            <button
+                type="submit"
+                style="padding:12px;background:#007bff;color:white;border:none;border-radius:6px;font-size:1rem;cursor:pointer;"
+            >
+                Subscribe
+            </button>
+        </form>
+
+        <p style="font-family:sans-serif;font-size:0.8rem;color:#888;margin-top:20px;">
+            You can unsubscribe anytime.
+        </p>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <div class="footer-logo-icon-custom"></div>
+                        <div class="footer-logo-text">Ymal.space</div>
+                    </a>
+                    <p class="footer-tagline">
+                        A privacy-first search engine that protects your data while delivering accurate results.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">𝕏</a>
+                        <a href="#" class="social-link">𝔽</a>
+                        <a href="#" class="social-link">𝕀</a>
+                        <a href="#" class="social-link">𝔾</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <div class="footer-links">
+                        <a href="https://search.ymal.space" class="footer-link">Search Engine</a>
+                        <a href="about.html" class="footer-link">Features</a>
+                        <a href="privacy-policy.html" class="footer-link">Privacy</a>
+                        <a href="terms.html" class="footer-link">Terms</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <div class="footer-links">
+                        <a href="about.html" class="footer-link">About Us</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="careers.html" class="footer-link">Careers</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Legal</h4>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-link">Terms of Service</a>
+                        <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
+                        <a href="gdpr.html" class="footer-link">GDPR</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 Ymal.space. All rights reserved. Search privately, live freely.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                }
+            });
+        }
+
+        // Side notification popup logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const alertBanner = document.getElementById('homeNotificationAlert');
+            const closeBtn = document.getElementById('closeNotificationBtn');
+
+            // Slide the popup in after a short delay, only if not dismissed this session
+            if (alertBanner && !sessionStorage.getItem('hideNotification')) {
+                setTimeout(() => {
+                    alertBanner.classList.add('show');
+                }, 1200);
+            }
+
+            // Handle closing the popup
+            if (closeBtn && alertBanner) {
+                closeBtn.addEventListener('click', () => {
+                    alertBanner.classList.remove('show');
+                    sessionStorage.setItem('hideNotification', 'true');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
