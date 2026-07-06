@@ -82,6 +82,14 @@
             gap: 5px;
         }
 
+        /* Urgent/Alert variation for breaking news card */
+        .blog-card.breaking-alert {
+            border-top: 4px solid #ff3b30;
+        }
+        .blog-card.breaking-alert .blog-card-link {
+            color: #ff3b30;
+        }
+
         /* Grayed out placeholder style for upcoming articles */
         .blog-card.placeholder {
             border-top: 4px solid #cbd5e1;
@@ -125,6 +133,21 @@
     <section class="blog-feed-section">
         <div class="container">
             <div class="blog-grid">
+                
+                <a href="blogs/discord-false-ban/discord-global-false-ban" class="blog-card breaking-alert">
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span style="color: #ff3b30; font-weight: bold;">🚨 Platform Report</span>
+                            <span>•</span>
+                            <span>06/07/2026</span>
+                        </div>
+                        <h2 class="blog-card-title">BREAKING: Discord False Ban Reports (Image Detection Issue 2026)</h2>
+                        <p class="blog-card-excerpt">
+                            A severe vulnerability in automated image safety filters is causing permanent bans over ordinary images. Learn why Minecraft inventories, chessboards, and game textures are triggering false matches and how to safeguard your account.
+                        </p>
+                        <span class="blog-card-link">Read Full Report →</span>
+                    </div>
+                </a>
                 
                 <a href="blogs/super-cheap-discord-boosts/liteboosts.html" class="blog-card">
                     <div class="blog-card-content">
