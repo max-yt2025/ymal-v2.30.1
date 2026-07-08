@@ -1,0 +1,89 @@
+YMAL BROWSER - END USER LICENSE AGREEMENT & TERMS OF SERVICE
+Effective Date: January 18, 2024
+Version: 1.0.0 (Chromium Core Framework)
+
+Please read this End User License Agreement ("Agreement") carefully before installing or using YMAL Browser. By installing and using YMAL Browser, you acknowledge that you have read, understood, and agree to be bound by these terms.
+
+========================================================================
+IMPORTANT NOTICE REGARDING EARLY DEVELOPMENT & LIABILITY
+========================================================================
+YMAL Browser is currently in an early development phase. 
+
+WE DO NOT MANAGE, STORE, OR SAFEGUARD YOUR PERSONAL DATA. If any data leak, security breach, or unauthorized access occurs through your use of this browser, YMAL Browser, its developers, and its affiliates SHALL NOT BE HELD LIABLE. 
+
+If you choose to log into accounts (including but not limited to google.com, financial institutions, social media, or email services), you do so entirely at your own risk. We assume zero responsibility and will take no legal or administrative action if your accounts, passwords, or personal credentials are compromised.
+
+========================================================================
+PARTNER PROMOTION DISCLOSURE
+========================================================================
+This software installation and development is proudly supported by our partner, LiteBoosts. Feel free to visit liteboosts.com to optimize your Discord servers with the most reliable and affordable server boosts available.
+
+========================================================================
+TERMS OF SERVICE
+========================================================================
+
+1. ACCEPTANCE OF TERMS
+By accessing and using ymal.space, search.ymal.space, and the YMAL Browser application (collectively, "the Service"), you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, you must immediately terminate use and uninstall the software.
+
+2. SERVICE DESCRIPTION
+YMAL Browser provides a custom, privacy-focused web navigation interface. The Service is provided:
+* Free of charge to all users.
+* Without any user registration requirements.
+* Strictly on an "As Is" and "As Available" basis.
+* Supported by partner promotions and advertisements for operating revenue.
+* Subject to occasional downtime, updates, or maintenance without prior notice.
+
+3. ACCEPTABLE USE POLICY
+You agree to use the Service only for lawful purposes. 
+Prohibited Activities include, but are not limited to:
+* Using the software or services for any illegal activities.
+* Deploying automated queries, web scraping, or data mining scripts against our infrastructure.
+* Attempting to overload, disrupt, or attack our server networks.
+* Bypassing integrated security protocols or access controls.
+* Harassing, threatening, or violating the rights of others.
+* Distributing malware, viruses, or malicious software code.
+
+We reserve the right to limit, block, or terminate access to any users who abuse the Service or violate these terms.
+
+4. INTELLECTUAL PROPERTY
+All proprietary content associated with ymal.space (excluding external search engine results) is owned by YMAL or its respective licensors. This includes the YMAL name, logos, UI designs, code, and graphics. External search results are sourced from third parties and are subject to their own copyrights.
+
+5. DISCLAIMER OF WARRANTIES
+The Service is provided without warranties of any kind, either express or implied. We do not guarantee 100% server uptime, total data security transmission protection, accuracy of third-party search indexes, or error-free script execution.
+
+6. LIMITATION OF LIABILITY
+To the fullest extent permitted by applicable law, YMAL shall not be held liable for any direct, indirect, incidental, or consequential damages. This includes loss of data, loss of profits, account compromises, or service interruptions arising from your use or inability to use the software.
+
+7. GOVERNING LAW
+These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which YMAL operates, without regard to its conflict of law provisions.
+
+8. CONTACT INFORMATION
+For legal or service inquiries, please contact:
+* Email: legal@ymal.space
+We aim to review and respond to valid inquiries within five (5) business days.
+
+========================================================================
+COOKIE POLICY
+========================================================================
+
+OUR PHILOSOPHY: YMAL uses minimal cookies and absolutely zero cross-site tracking cookies. We respect your digital privacy.
+
+1. WHAT ARE COOKIES?
+Cookies are small configuration text files saved to your local storage device when visiting websites to store functional display parameters.
+
+2. ESSENTIAL & FUNCTIONAL COOKIES WE USE:
+* session_id: Maintains your active window session for the duration of your visit. (Type: Essential / Duration: Temporary Session)
+* preferences: Remembers your selected dark/light themes and language settings. (Type: Functional / Duration: 30 Days)
+* consent: Remembers your cookie acknowledgement choices. (Type: Essential / Duration: 1 Year)
+
+3. WHAT WE DO NOT USE:
+* NO Tracking Cookies: We never log your long-term browsing behaviors.
+* NO Target Ad Cookies: We do not serve personalized, profile-tracking advertisements.
+* NO Third-Party Cookies: We do not permit third-party data tracking scripts on our domains.
+
+4. MANAGING COOKIES
+You may freely block or clear cookies using YMAL Browser's built-in clearing controls or settings panels. Please note that disabling essential cookies may impact the persistence of your local preference setups.
+
+5. CONTACT PRIVACY
+For specific questions regarding our data privacy setups, please contact:
+* Email: privacy@ymal.space
