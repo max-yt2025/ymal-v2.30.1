@@ -1,510 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The YouTube YAP – Discord community for creators</title>
-  <!-- Font Awesome (optional but clean) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiteBoosts Review: Super Cheap Discord Boosts - Ymal.space</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="icon" href="../../Copilot_20260118_155318.png">
+    <style>
+        .page-header {
+            padding: 80px 0 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(219, 234, 254, 0.3), rgba(254, 226, 226, 0.3));
+        }
+        
+        .blog-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background: white;
+        }
 
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      background: #f8fafc;
-      color: #0f172a;
-      line-height: 1.6;
-    }
+        .blog-meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+        .blog-content h2 {
+            color: var(--text-dark);
+            margin: 40px 0 20px;
+            font-size: 1.8rem;
+        }
 
-    /* ----- header (matches Ymal style but adapted) ----- */
-    header {
-      background: white;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-      padding: 16px 0;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid #eef2f6;
-    }
+        .blog-content h3 {
+            color: var(--text-dark);
+            margin: 30px 0 15px;
+            font-size: 1.4rem;
+        }
 
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #0f172a;
-    }
+        /* Pricing Table Styling */
+        .pricing-table-wrapper {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
 
-    .logo-icon-custom {
-      width: 32px;
-      height: 32px;
-      background: #2563eb;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 16px;
-    }
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background: white;
+        }
 
-    .logo-text {
-      font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: -0.3px;
-    }
+        .pricing-table th, .pricing-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+        }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
+        .pricing-table th {
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 600;
+        }
 
-    .nav-link {
-      text-decoration: none;
-      color: #334155;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-    }
-    .nav-link:hover { color: #2563eb; }
+        .pricing-table tr:hover {
+            background-color: #f9f9f9;
+        }
 
-    .search-button {
-      background: #2563eb;
-      color: white;
-      padding: 8px 20px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: background 0.2s;
-    }
-    .search-button:hover { background: #1d4ed8; }
+        /* Review Image Containers */
+        .review-image-container {
+            margin: 30px 0;
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
 
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.6rem;
-      cursor: pointer;
-      color: #0f172a;
-    }
+        .review-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
 
-    /* page header */
-    .page-header {
-      padding: 60px 0 30px;
-      text-align: center;
-      background: linear-gradient(145deg, #f1f5f9, #eef2ff);
-    }
-    .page-header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-    .page-header .subhead {
-      color: #475569;
-      font-size: 1.2rem;
-    }
-    .page-header .meta-badge {
-      display: inline-block;
-      margin-top: 12px;
-      background: #dbeafe;
-      padding: 6px 18px;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      color: #1e40af;
-      font-weight: 500;
-    }
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 10px;
+            font-style: italic;
+        }
 
-    /* blog container */
-    .blog-container {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 50px 24px 70px;
-      background: white;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.02);
-      border-radius: 24px;
-      margin-top: -20px;
-      position: relative;
-      background: white;
-    }
+        /* Lists styling matching the values grid vibe */
+        .perks-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
 
-    .blog-meta {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      font-size: 0.9rem;
-      color: #64748b;
-      margin-bottom: 28px;
-      border-bottom: 1px solid #e9edf2;
-      padding-bottom: 20px;
-    }
+        .perks-list li {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .blog-content h2 {
-      font-size: 2rem;
-      margin: 48px 0 16px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #0f172a;
-    }
-    .blog-content h3 {
-      font-size: 1.5rem;
-      margin: 32px 0 12px;
-      font-weight: 600;
-      color: #0f172a;
-    }
-    .blog-content p {
-      font-size: 1.08rem;
-      color: #1e293b;
-      margin-bottom: 20px;
-    }
+        .tag-cloud {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
 
-    /* feature grid (for YAP) */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin: 32px 0 24px;
-    }
-    .feature-card {
-      background: #f8fafc;
-      border-radius: 16px;
-      padding: 20px 18px;
-      border: 1px solid #eef2f6;
-      transition: 0.15s;
-    }
-    .feature-card:hover { background: #f1f5f9; }
-    .feature-card .icon { font-size: 1.6rem; margin-bottom: 6px; }
-    .feature-card h4 { font-weight: 600; margin-bottom: 6px; }
-    .feature-card p { font-size: 0.95rem; color: #475569; margin-bottom: 0; }
-
-    /* table */
-    .pricing-table-wrapper {
-      overflow-x: auto;
-      margin: 30px 0;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      background: white;
-    }
-    .pricing-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-    }
-    .pricing-table th {
-      background: #f1f5f9;
-      padding: 14px 16px;
-      text-align: left;
-      font-weight: 600;
-      color: #0f172a;
-    }
-    .pricing-table td {
-      padding: 14px 16px;
-      border-top: 1px solid #eef2f6;
-      color: #1e293b;
-    }
-    .pricing-table tr:hover td { background: #fafbfc; }
-
-    .tag-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid #e9edf2;
-    }
-    .tag {
-      background: #f1f5f9;
-      color: #334155;
-      padding: 4px 14px;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      text-decoration: none;
-    }
-
-    .btn-join {
-      display: inline-block;
-      background: #5865f2;
-      color: white;
-      font-weight: 600;
-      padding: 14px 36px;
-      border-radius: 60px;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: background 0.2s;
-      margin: 12px 0 8px;
-    }
-    .btn-join:hover { background: #4752c4; }
-
-    .cta-section {
-      background: #f1f5f9;
-      padding: 60px 0;
-      text-align: center;
-    }
-    .cta-title { font-size: 2rem; font-weight: 700; }
-    .cta-text { color: #475569; max-width: 600px; margin: 12px auto 28px; }
-
-    footer {
-      background: #0f172a;
-      color: #cbd5e1;
-      padding: 48px 0 24px;
-    }
-    .footer-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-    }
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-    .footer-logo-icon-custom {
-      width: 28px;
-      height: 28px;
-      background: #2563eb;
-      border-radius: 8px;
-    }
-    .footer-tagline { margin-top: 10px; color: #94a3b8; max-width: 260px; }
-    .footer-heading { color: white; font-weight: 600; margin-bottom: 14px; }
-    .footer-links { display: flex; flex-direction: column; gap: 10px; }
-    .footer-link { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; }
-    .footer-link:hover { color: white; }
-    .footer-bottom {
-      border-top: 1px solid #1e293b;
-      margin-top: 40px;
-      padding-top: 24px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #94a3b8;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle { display: block; }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: white;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        padding: 20px 24px;
-        gap: 18px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        border-bottom: 1px solid #e2e8f0;
-      }
-      .nav-links.active { display: flex; }
-      .page-header h1 { font-size: 2.2rem; }
-      .footer-content { grid-template-columns: 1fr; gap: 30px; }
-      .blog-container { padding: 30px 18px; }
-    }
-  </style>
+        .tag {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container header-container">
-      <a href="#" class="logo-container">
-        <span class="logo-icon-custom">Y</span>
-        <span class="logo-text">Ymal.space</span>
-      </a>
-      <button class="menu-toggle" id="menuToggle">☰</button>
-      <nav class="nav-links" id="navLinks">
-        <a href="#" class="nav-link">Home</a>
-        <a href="#" class="nav-link">About</a>
-        <a href="#" class="nav-link">Contact</a>
-        <a href="#" class="nav-link">Privacy</a>
-        <a href="#" class="nav-link">Terms</a>
-        <a href="#" class="search-button">Search →</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- PAGE TITLE / META -->
-  <section class="page-header">
-    <div class="container">
-      <h1>The YouTube YAP</h1>
-      <div class="subhead">🎥 YouTube Community · 📅 August 1, 2026</div>
-      <div class="meta-badge">🔥 Discord community for creators</div>
-    </div>
-  </section>
-
-  <!-- MAIN CONTENT -->
-  <main class="blog-container">
-    <div class="blog-meta">
-      <span><i class="fas fa-users" style="margin-right: 6px;"></i> YouTube YAP</span>
-      <span>•</span>
-      <span><i class="far fa-calendar-alt"></i> Aug 1, 2026</span>
-    </div>
-
-    <article class="blog-content">
-      <!-- What is -->
-      <h2>What is The YouTube YAP?</h2>
-      <p>
-        The YouTube YAP is a Discord community built for YouTube creators of every size. Inspired by Chill Centre, our goal is to create one of the largest communities where YouTubers can connect, collaborate, and grow together.
-      </p>
-      <p>
-        Whether you're just starting your channel or already have a large audience, you'll find people who share the same passion for creating content.
-      </p>
-
-      <!-- What we offer -->
-      <h2>What We Offer</h2>
-      <p>Joining The YouTube YAP is simple:</p>
-      <ul style="list-style: none; padding-left: 0; margin: 18px 0 24px;">
-        <li style="display: flex; gap: 10px; align-items: center; font-size: 1.05rem; margin-bottom: 12px;">
-          <span style="background: #dbeafe; padding: 4px 12px; border-radius: 40px; font-weight: 600;">1️⃣</span> 
-          <strong>Join the Server</strong> – Become part of a growing creator community.
-        </li>
-        <li style="display: flex; gap: 10px; align-items: center; font-size: 1.05rem; margin-bottom: 12px;">
-          <span style="background: #dbeafe; padding: 4px 12px; border-radius: 40px; font-weight: 600;">2️⃣</span> 
-          <strong>Meet Other Creators</strong> – Chat about YouTube, editing, thumbnails, and video ideas.
-        </li>
-        <li style="display: flex; gap: 10px; align-items: center; font-size: 1.05rem; margin-bottom: 12px;">
-          <span style="background: #dbeafe; padding: 4px 12px; border-radius: 40px; font-weight: 600;">3️⃣</span> 
-          <strong>Collaborate</strong> – Find creators to record videos with, appear in videos, or help with projects.
-        </li>
-      </ul>
-
-      <!-- Feature table -->
-      <h2>Community Features</h2>
-      <div class="pricing-table-wrapper">
-        <table class="pricing-table">
-          <thead><tr><th>Feature</th><th>Description</th></tr></thead>
-          <tbody>
-            <tr><td>💬 Content Discussions</td><td>Talk about YouTube, editing, thumbnails, and ideas.</td></tr>
-            <tr><td>🤝 Creator Collaborations</td><td>Find YouTubers for videos, streams, or shorts.</td></tr>
-            <tr><td>📢 Sponsor Opportunities</td><td>Discover sponsorship opportunities and share creator resources.</td></tr>
-            <tr><td>📈 Growth Advice</td><td>Get tips on improving your content and growing your audience.</td></tr>
-            <tr><td>🎉 Active Community</td><td>Meet creators from different niches and experience levels.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Why join -->
-      <h2>Why Join?</h2>
-      <p>
-        The YouTube YAP isn't just another Discord server—it's a place where creators can learn from each other, build friendships, and create amazing content together.
-      </p>
-      <p>Whether you need:</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0 20px;">
-        <span style="background: #eef2ff; padding: 6px 16px; border-radius: 40px;">🎬 Someone for a Minecraft video</span>
-        <span style="background: #eef2ff; padding: 6px 16px; border-radius: 40px;">🎤 A voice actor</span>
-        <span style="background: #eef2ff; padding: 6px 16px; border-radius: 40px;">🎮 Gaming collaborators</span>
-        <span style="background: #eef2ff; padding: 6px 16px; border-radius: 40px;">💡 Video ideas</span>
-        <span style="background: #eef2ff; padding: 6px 16px; border-radius: 40px;">📈 Channel advice</span>
-        <span style="background: #eef2ff; padding: 6px 16px; border-radius: 40px;">💼 Sponsorship discussions</span>
-      </div>
-      <p>You'll find creators who are ready to help.</p>
-
-      <!-- goal -->
-      <h2>Our Goal</h2>
-      <p>
-        Our mission is to build one of the biggest YouTube-focused Discord communities. 
-        We want to create a space where creators can freely talk about content, discover collaboration opportunities, and help each other succeed on YouTube.
-      </p>
-      <p>Every member contributes to making the community stronger.</p>
-
-      <!-- join CTA -->
-      <div style="text-align: center; margin: 44px 0 20px; background: #f8fafc; padding: 32px 20px; border-radius: 32px;">
-        <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 8px;">Join The Community Today</h3>
-        <p style="max-width: 500px; margin: 0 auto 20px; color: #475569;">
-          If you're passionate about YouTube and want to connect with other creators, The YouTube YAP is the perfect place to start.
-        </p>
-        <a href="#" class="btn-join"><i class="fab fa-discord" style="margin-right: 10px;"></i> Join Discord</a>
-        <p style="margin-top: 12px; font-size: 0.9rem; color: #64748b;">Join today, introduce yourself, and become part of a growing network.</p>
-      </div>
-
-      <!-- tags -->
-      <div class="tag-cloud">
-        <span class="tag">#YouTubeCommunity</span>
-        <span class="tag">#Discord</span>
-        <span class="tag">#CreatorCollab</span>
-        <span class="tag">#YouTuber</span>
-        <span class="tag">#GrowTogether</span>
-        <span class="tag">#ContentCreator</span>
-        <span class="tag">#TheYouTubeYAP</span>
-      </div>
-    </article>
-  </main>
-
-  <!-- CTA SECTION -->
-  <section class="cta-section">
-    <div class="container">
-      <h2 class="cta-title">🎥 Ready to level up your content?</h2>
-      <p class="cta-text">Connect with creators, share ideas, and find your next collaboration. The YouTube YAP is waiting for you.</p>
-      <a href="https://discord.gg/vqSmaV6FdM" class="search-button" style="padding: 14px 40px; font-size: 1.1rem; background: #2563eb;">Join the YAP →</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <a href="#" class="footer-logo">
-            <span class="footer-logo-icon-custom"></span>
-            <span class="footer-logo-text">Ymal.space</span>
-          </a>
-          <p class="footer-tagline">A privacy-first search engine that protects your data while delivering accurate results.</p>
+    <header>
+        <div class="container header-container">
+            <a href="/" class="logo-container">
+                <div class="logo-icon-custom"></div>
+                <div class="logo-text">Ymal.space</div>
+            </a>
+            
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="/" class="nav-link">Home</a>
+                <a href="../../about.html" class="nav-link">About</a>
+                <a href="../../contact.html" class="nav-link">Contact</a>
+                <a href="../../privacy-policy.html" class="nav-link">Privacy</a>
+                <a href="../../terms.html" class="nav-link">Terms</a>
+                <a href="https://search.ymal.space" class="search-button">Search →</a>
+            </nav>
         </div>
-        <div>
-          <h4 class="footer-heading">Product</h4>
-          <div class="footer-links">
-            <a href="#" class="footer-link">Search Engine</a>
-            <a href="#" class="footer-link">Features</a>
-            <a href="#" class="footer-link">Privacy</a>
-            <a href="#" class="footer-link">Terms</a>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="section-title" style="max-width: 800px; margin: 0 auto; line-height: 1.3;">Super Cheap Discord Boosts, Nitro, and Members</h1>
+        </div>
+    </section>
+
+    <main class="blog-container">
+        <div class="blog-meta">
+            <span>🛡️ Discord Blog</span>
+            <span>•</span>
+            <span>📅 7/05/2026</span>
+        </div>
+
+        <article class="blog-content">
+            <p>
+                Discord is the ultimate platform to facilitate gaming communities, professional network channels, and social hubs. To make your server stand out from the rest, you should take advantage of Discord Boosting to unlock premium features. This <strong>LiteBoosts Review</strong> will cover a cost-efficient, lightning-fast, and secure way to boost your server without breaking the bank.
+            </p>
+
+           <div class="review-image-container">
+              <img src="../../liteboosts-homepage.webp" alt="LiteBoosts Website Interface View" class="review-image">
+              <div class="image-caption">LiteBoosts.com Website Homepage & Interface View</div>
           </div>
-        </div>
-        <div>
-          <h4 class="footer-heading">Company</h4>
-          <div class="footer-links">
-            <a href="#" class="footer-link">About Us</a>
-            <a href="#" class="footer-link">Contact</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Ymal.space · The YouTube YAP community page</p>
-      </div>
-    </div>
-  </footer>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-      });
-      document.addEventListener('click', (e) => {
-        if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-          navLinks.classList.remove('active');
-          menuToggle.textContent = '☰';
+            <h2>What is LiteBoosts?</h2>
+            <p>
+                LiteBoosts is a professional premium service that helps Discord server owners enhance their communities by purchasing cheap Discord boosts safely. Instead of spending premium retail prices through traditional methods, LiteBoosts uses optimized setups to provide custom banners, enhanced audio quality, and high file upload limits instantly.
+            </p>
+
+            <h2>How LiteBoosts Works</h2>
+            <p>Using LiteBoosts to upgrade your server takes just a few quick steps:</p>
+            <ul class="perks-list">
+                <li>1️⃣ <strong>Choose a Package:</strong> Select the amount of boosts or the server tier level you need.</li>
+                <li>2️⃣ <strong>Secure Checkout:</strong> Input your server invite link and select your preferred payment method.</li>
+                <li>3️⃣ <strong>Instant Delivery:</strong> Watch your community server upgrade instantly as the automated system goes to work.</li>
+            </ul>
+
+            <h2>Affordable Pricing Plans — Cheap Discord Boosts</h2>
+            <p>LiteBoosts offers heavily discounted rates to fit any budget size, allowing communities to unlock structural perks efficiently:</p>
+            
+<div class="pricing-table-wrapper">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Package / Boosts</th>
+                            <th>Target Tier</th>
+                            <th>Price</th>
+                            <th>Duration</th>
+                            <th>Features & Warranty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>8 Server Boosts</strong></td>
+                            <td>Level 2</td>
+                            <td style="font-weight: bold; color: #16a34a;">$12.49</td>
+                            <td>3 Months</td>
+                            <td>Instant Delivery, Full Warranty, Active for 90 Days, 24/7 Support</td>
+                        </tr>
+                        <tr>
+                            <td><strong>14 Server Boosts</strong></td>
+                            <td>Level 3 Max</td>
+                            <td style="font-weight: bold; color: #16a34a;">$19.99</td>
+                            <td>3 Months</td>
+                            <td>Instant Delivery, Full Warranty, Active for 90 Days,  24/7 Support</td>
+                        </tr>
+                        <tr>
+                            <td><strong>20 Server Boosts</strong></td>
+                            <td>Level 3 Overdrive</td>
+                            <td style="font-weight: bold; color: #16a34a;">$25.99</td>
+                            <td>3 Months</td>
+                            <td>Instant Delivery, Full Warranty, Active for 90 Days,  24/7 Support</td>
+                        </tr>
+                        <tr>
+                            <td><strong>30 Server Boosts</strong></td>
+                            <td>Level 3 Overdrive</td>
+                            <td style="font-weight: bold; color: #16a34a;">$36.99</td>
+                            <td>3 Months</td>
+                            <td>Instant Delivery, Full Warranty, Active for 90 Days,  24/7 Support</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Unlock Premium Server Features</h2>
+            <p>By securing your boosts through LiteBoosts, your server members instantly get access to custom configurations:</p>
+            <ul class="perks-list">
+                <li>🔊 <strong>Enhanced Audio Quality:</strong> Crystal-clear voice chat streams at up to 384 Kbps.</li>
+                <li>🎨 <strong>Server Branding:</strong> Custom animated icons, server banners, and vanity invite URLs.</li>
+                <li>🚀 <strong>Higher Upload Limits:</strong> Share massive files seamlessly with a 100MB+ cap limit.</li>
+                <li>🎭 <strong>More Customization:</strong> Massive slots for custom emojis, stickers, and soundboards.</li>
+            </ul>
+
+            <h2>Customer Reviews & Real Proof</h2>
+            <p> don't just take our word for it—hundreds of server administrators trust LiteBoosts to keep their perks active year-round with zero drops.</p>
+            
+            <div class="review-image-container">
+                <img src="../../reviews.webp" alt="LiteBoosts Customer Reviews and Ratings" class="review-image" onerror="this.style.display='none';">
+                <div class="image-caption">Customer Testimonials: What People Are Saying</div>
+            </div>
+
+            <h2>Why Choose LiteBoosts?</h2>
+            <p>
+                Unlike standard options that lock you into steep monthly pricing models, LiteBoosts features a transparent 90-day warranty, secure encrypted payments (including credit cards and crypto options), and dedicated customer care lines open around the clock to guide your server's deployment.
+            </p>
+
+            <h2>Conclusion</h2>
+            <p>
+                If you are looking to scale your online community with modern branding features, LiteBoosts delivers the ideal solution. It combines security, price transparency, and rapid delivery models into one convenient workspace. Take your server to the next tier today without any of the hassle.
+            </p>
+
+            <div class="tag-cloud">
+                <span class="tag">boosts</span>
+                <span class="tag">buy boost</span>
+                <span class="tag">Buy Cheap Discord Boost</span>
+                <span class="tag">discord</span>
+                <span class="tag">How Much Does a Boost Cost Discord</span>
+                <span class="tag">servers</span>
+                <span class="tag">liteboosts review</span>
+            </div>
+        </article>
+    </main>
+
+    <section class="cta-section" style="background: var(--background); padding: 60px 0; text-align: center;">
+        <div class="container">
+            <h2 class="cta-title">Ready to Upgrade Your Community?</h2>
+            <p class="cta-text" style="margin: 15px 0 30px; color: var(--text-light);">
+                Experience fast, reliable, and premium boosting packages tailored for your discord server.
+            </p>
+            <a href="https://search.ymal.space" class="search-button" style="padding: 15px 30px; font-size: 1.1rem;">Explore Private Search</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <div class="footer-logo-icon-custom"></div>
+                        <div class="footer-logo-text">Ymal.space</div>
+                    </a>
+                    <p class="footer-tagline">
+                        A privacy-first search engine that protects your data while delivering accurate results.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Product</h4>
+                    <div class="footer-links">
+                        <a href="https://search.ymal.space" class="footer-link">Search Engine</a>
+                        <a href="../../about.html" class="footer-link">Features</a>
+                        <a href="../../privacy-policy.html" class="footer-link">Privacy</a>
+                        <a href="../../terms.html" class="footer-link">Terms</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <div class="footer-links">
+                        <a href="../../about.html" class="footer-link">About Us</a>
+                        <a href="../../contact.html" class="footer-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 Ymal.space. All rights reserved. Search privately, live freely.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+            
+            document.addEventListener('click', (e) => {
+                if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                }
+            });
         }
-      });
-    }
-  </script>
+    </script>
 </body>
 </html>
