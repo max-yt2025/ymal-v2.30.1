@@ -1,0 +1,1183 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Protección de Streamers de Twitch | YMAL.space</title>
+
+    <meta
+        name="description"
+        content="La Protección de Streamers de YMAL ayuda a crear conciencia sobre campañas maliciosas de bots de espectadores y seguidores dirigidas contra streamers legítimos."
+    >
+
+    <meta name="theme-color" content="#9147ff">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --background: #08090f;
+            --card: #121521;
+            --card-hover: #181c2a;
+            --border: #272c3d;
+            --text: #ffffff;
+            --muted: #aeb4c5;
+            --purple: #9147ff;
+            --purple-light: #b983ff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system,
+                BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 50% -10%,
+                    rgba(145, 71, 255, 0.25),
+                    transparent 35%
+                ),
+                var(--background);
+
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 16px 6%;
+
+            background: rgba(8, 9, 15, 0.86);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        .logo span {
+            color: var(--purple-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: .95rem;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .language {
+            padding: 8px 13px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: auto;
+            padding: 110px 6% 90px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 14px;
+
+            border-radius: 999px;
+
+            color: var(--purple-light);
+
+            background: rgba(145, 71, 255, .12);
+
+            border: 1px solid rgba(145, 71, 255, .35);
+
+            font-size: .8rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+        }
+
+        h1 {
+            margin-top: 25px;
+
+            font-size: clamp(3rem, 7vw, 6rem);
+
+            line-height: .98;
+            letter-spacing: -.05em;
+        }
+
+        .gradient {
+            background: linear-gradient(
+                90deg,
+                #fff,
+                var(--purple-light)
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 28px auto 0;
+
+            color: var(--muted);
+
+            font-size: 1.15rem;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+
+            margin-top: 32px;
+
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 13px 19px;
+
+            border-radius: 11px;
+
+            font-weight: 800;
+
+            border: 1px solid var(--border);
+
+            transition: .2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .primary {
+            background: var(--purple);
+            border-color: var(--purple);
+        }
+
+        .secondary {
+            color: var(--muted);
+            background: var(--card);
+        }
+
+        main {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 0 6% 90px;
+        }
+
+        section {
+            margin-top: 80px;
+        }
+
+        .eyebrow {
+            color: var(--purple-light);
+
+            text-transform: uppercase;
+
+            font-size: .78rem;
+
+            font-weight: 900;
+
+            letter-spacing: .12em;
+        }
+
+        h2 {
+            margin-top: 8px;
+
+            font-size: 2.3rem;
+
+            letter-spacing: -.03em;
+        }
+
+        .section-description {
+            max-width: 760px;
+
+            margin-top: 12px;
+
+            color: var(--muted);
+        }
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 30px;
+        }
+
+        .stat {
+            padding: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #161927,
+                    #10121b
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 17px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+
+            font-weight: 950;
+
+            color: var(--purple-light);
+        }
+
+        .stat-label {
+            margin-top: 5px;
+
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 30px;
+        }
+
+        .card {
+            padding: 26px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            transition: .2s;
+        }
+
+        .card:hover {
+            background: var(--card-hover);
+            transform: translateY(-3px);
+        }
+
+        .icon {
+            width: 44px;
+            height: 44px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            background:
+                rgba(145, 71, 255, .13);
+
+            margin-bottom: 17px;
+
+            font-size: 1.3rem;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: var(--muted);
+        }
+
+        .process {
+            display: grid;
+
+            gap: 13px;
+
+            margin-top: 30px;
+        }
+
+        .process-item {
+            display: flex;
+
+            gap: 18px;
+
+            padding: 20px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+        }
+
+        .process-number {
+            min-width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: var(--purple);
+
+            font-weight: 900;
+        }
+
+        .process-item p {
+            color: var(--muted);
+        }
+
+        .news-box {
+            margin-top: 30px;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 17px;
+
+            overflow: hidden;
+        }
+
+        .news-header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 20px 23px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .news-header span {
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .news-content {
+            padding: 24px;
+        }
+
+        .news-search {
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+        }
+
+        .news-search input {
+            flex: 1;
+
+            min-width: 200px;
+
+            padding: 13px 15px;
+
+            background: #090b12;
+
+            color: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            outline: none;
+        }
+
+        .news-search input:focus {
+            border-color: var(--purple);
+        }
+
+        .news-search button {
+            border: 0;
+
+            padding: 13px 18px;
+
+            border-radius: 10px;
+
+            background: var(--purple);
+
+            color: white;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .news-placeholder {
+            margin-top: 25px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            border: 1px dashed var(--border);
+
+            border-radius: 12px;
+        }
+
+        .notice {
+            margin-top: 30px;
+
+            padding: 22px;
+
+            border-left: 4px solid var(--purple);
+
+            border-radius: 0 12px 12px 0;
+
+            background:
+                rgba(145, 71, 255, .08);
+
+            color: var(--muted);
+        }
+
+        .report {
+            text-align: center;
+
+            padding: 55px 25px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(145, 71, 255, .15),
+                    transparent 60%
+                );
+        }
+
+        .report p {
+            max-width: 680px;
+
+            margin: 15px auto 25px;
+
+            color: var(--muted);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+
+            padding: 35px 6%;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: .9rem;
+        }
+
+        @media (max-width: 800px) {
+
+            .nav-links a:not(.language) {
+                display: none;
+            }
+
+            .stats,
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 75px;
+            }
+
+            h1 {
+                font-size: 3.2rem;
+            }
+
+            h2 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <a class="logo" href="https://ymal.space/">
+        YMAL<span>.space</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="#proteccion">
+            Protección
+        </a>
+
+        <a href="#proceso">
+            Cómo funciona
+        </a>
+
+        <a href="#noticias">
+            Noticias
+        </a>
+
+        <a
+            class="language"
+            href="../english/twitch-protection.html"
+        >
+            English
+        </a>
+
+    </div>
+
+</nav>
+
+
+<header class="hero">
+
+    <span class="badge">
+        PROTECCIÓN DE STREAMERS DE YMAL
+    </span>
+
+    <h1>
+        Protegiendo a los streamers.<br>
+
+        <span class="gradient">
+            Combatiendo el botting.
+        </span>
+    </h1>
+
+    <p>
+        YMAL ayuda a crear conciencia sobre campañas maliciosas
+        de bots de espectadores, bots de seguidores y otras
+        actividades no deseadas dirigidas contra streamers
+        legítimos.
+    </p>
+
+    <div class="buttons">
+
+        <a
+            class="button primary"
+            href="#reportar"
+        >
+            Reportar actividad sospechosa
+        </a>
+
+        <a
+            class="button secondary"
+            href="#noticias"
+        >
+            Ver noticias de Twitch
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+<section id="proteccion">
+
+    <span class="eyebrow">
+        Nuestra misión
+    </span>
+
+    <h2>
+        Los creadores reales merecen crecimiento real.
+    </h2>
+
+    <p class="section-description">
+        Nuestro objetivo es ayudar a proteger a los streamers
+        frente a actividad artificial no deseada y crear
+        conciencia cuando un creador pueda estar siendo
+        objetivo de una campaña de bots.
+    </p>
+
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-number">
+                100+
+            </div>
+
+            <div class="stat-label">
+                Streamers protegidos*
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                24/7
+            </div>
+
+            <div class="stat-label">
+                Mentalidad de protección
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                1
+            </div>
+
+            <div class="stat-label">
+                Misión: proteger a creadores reales
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <span class="eyebrow">
+        Lo que vigilamos
+    </span>
+
+    <h2>
+        Comprendiendo la actividad no deseada de bots
+    </h2>
+
+    <p class="section-description">
+        La actividad artificial puede dificultar la interpretación
+        de las estadísticas de un stream. En algunos casos,
+        actores maliciosos pueden enviar deliberadamente
+        actividad no deseada a un creador.
+    </p>
+
+
+    <div class="grid">
+
+
+        <article class="card">
+
+            <div class="icon">
+                👁️
+            </div>
+
+            <h3>
+                Bots de espectadores
+            </h3>
+
+            <p>
+                Los espectadores artificiales pueden crear patrones
+                de tráfico inusuales y hacer más difícil interpretar
+                las estadísticas legítimas.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="icon">
+                👥
+            </div>
+
+            <h3>
+                Bots de seguidores
+            </h3>
+
+            <p>
+                Los seguidores artificiales pueden cambiar
+                repentinamente el número de seguidores sin
+                representar un crecimiento real de la audiencia.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="icon">
+                ⚠️
+            </div>
+
+            <h3>
+                Actividad dirigida
+            </h3>
+
+            <p>
+                Un creador puede recibir tráfico o seguidores
+                no deseados sin haberlos solicitado. Documentar
+                el evento puede ayudar en una investigación.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<section id="proceso">
+
+    <span class="eyebrow">
+        Nuestra respuesta
+    </span>
+
+    <h2>
+        Cómo responde YMAL
+    </h2>
+
+    <p class="section-description">
+        Nos enfocamos en la prevención, documentación,
+        advertencias y reportes responsables en lugar de
+        represalias.
+    </p>
+
+
+    <div class="process">
+
+
+        <div class="process-item">
+
+            <div class="process-number">
+                1
+            </div>
+
+            <div>
+
+                <h3>
+                    Identificar
+                </h3>
+
+                <p>
+                    Buscar patrones inusuales de espectadores,
+                    seguidores o tráfico que puedan indicar
+                    actividad no deseada.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="process-number">
+                2
+            </div>
+
+            <div>
+
+                <h3>
+                    Advertir
+                </h3>
+
+                <p>
+                    Informar al streamer afectado sobre la
+                    actividad sospechosa y recomendar conservar
+                    las pruebas relevantes.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="process-number">
+                3
+            </div>
+
+            <div>
+
+                <h3>
+                    Documentar
+                </h3>
+
+                <p>
+                    Registrar horarios, capturas y otra información
+                    no sensible que pueda ayudar a establecer
+                    qué ocurrió.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="process-number">
+                4
+            </div>
+
+            <div>
+
+                <h3>
+                    Reportar
+                </h3>
+
+                <p>
+                    Utilizar los canales oficiales de soporte y
+                    reportes de la plataforma cuando se detecte
+                    actividad sospechosa.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="process-item">
+
+            <div class="process-number">
+                5
+            </div>
+
+            <div>
+
+                <h3>
+                    Proteger
+                </h3>
+
+                <p>
+                    Ayudar al creador a comprender lo ocurrido
+                    evitando acoso, represalias o acciones
+                    no autorizadas.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<section id="noticias">
+
+    <span class="eyebrow">
+        Investigación
+    </span>
+
+    <h2>
+        Noticias de Twitch y streamers
+    </h2>
+
+    <p class="section-description">
+        Busca en Google News información reciente sobre Twitch,
+        streaming, bots y seguridad de streamers.
+    </p>
+
+
+    <div class="news-box">
+
+        <div class="news-header">
+
+            <strong>
+                Búsqueda de Google News
+            </strong>
+
+            <span>
+                Búsqueda externa
+            </span>
+
+        </div>
+
+
+        <div class="news-content">
+
+            <div class="news-search">
+
+                <input
+                    id="googleQuery"
+                    type="text"
+                    value="Twitch streamer botting"
+                    placeholder="Buscar noticias de Twitch..."
+                >
+
+                <button
+                    onclick="searchGoogleNews()"
+                >
+                    Buscar en Google
+                </button>
+
+            </div>
+
+
+            <div class="news-placeholder">
+
+                🔎
+
+                <br><br>
+
+                Busca en Google News para consultar los
+                resultados públicos más recientes.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <span class="eyebrow">
+        Herramientas de investigación
+    </span>
+
+    <h2>
+        Búsquedas rápidas en Google
+    </h2>
+
+
+    <div class="grid">
+
+
+        <a
+            class="card"
+            href="https://www.google.com/search?q=Twitch+view+botting"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <div class="icon">
+                🔎
+            </div>
+
+            <h3>
+                Bots de espectadores
+            </h3>
+
+            <p>
+                Buscar información pública sobre bots de
+                espectadores en Twitch.
+            </p>
+
+        </a>
+
+
+        <a
+            class="card"
+            href="https://www.google.com/search?q=Twitch+follower+botting"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <div class="icon">
+                👥
+            </div>
+
+            <h3>
+                Bots de seguidores
+            </h3>
+
+            <p>
+                Buscar información pública sobre actividad
+                artificial de seguidores.
+            </p>
+
+        </a>
+
+
+        <a
+            class="card"
+            href="https://www.google.com/search?q=Twitch+streamer+safety"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <div class="icon">
+                🛡️
+            </div>
+
+            <h3>
+                Seguridad de streamers
+            </h3>
+
+            <p>
+                Buscar información y noticias recientes
+                relacionadas con la seguridad de streamers.
+            </p>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <div class="notice">
+
+        <strong>
+            Importante:
+        </strong>
+
+        YMAL no controla las decisiones de moderación o
+        aplicación de normas de Twitch. La actividad de bots
+        no significa automáticamente que un streamer haya
+        infringido las reglas de Twitch. Recomendamos utilizar
+        los canales oficiales de soporte y reportes de Twitch,
+        conservar las pruebas relevantes y evitar represalias
+        o acoso.
+
+    </div>
+
+</section>
+
+
+<section id="reportar">
+
+    <div class="report">
+
+        <span class="eyebrow">
+            ¿Necesitas ayuda?
+        </span>
+
+        <h2>
+            ¿Crees que tu stream está siendo atacado?
+        </h2>
+
+        <p>
+            Conserva las pruebas relevantes, registra cuándo
+            ocurrió la actividad inusual y contacta con el
+            canal de soporte correspondiente. También puedes
+            contactar con el equipo de YMAL mediante tu canal
+            oficial de soporte de YMAL.
+        </p>
+
+        <a
+            class="button primary"
+            href="https://ymal.space/"
+        >
+            Visitar YMAL.space
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 YMAL.space
+    </p>
+
+    <p>
+        Iniciativa de Protección de Streamers
+    </p>
+
+    <p>
+        YMAL es independiente y no está afiliado ni respaldado
+        por Twitch.
+    </p>
+
+</footer>
+
+
+<script>
+
+    function searchGoogleNews() {
+
+        const input =
+            document.getElementById("googleQuery");
+
+        const query =
+            input.value.trim();
+
+        if (!query) {
+            input.focus();
+            return;
+        }
+
+        const url =
+            "https://www.google.com/search?tbm=nws&q=" +
+            encodeURIComponent(query);
+
+        window.open(
+            url,
+            "_blank",
+            "noopener,noreferrer"
+        );
+    }
+
+
+    document
+        .getElementById("googleQuery")
+        .addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+                    searchGoogleNews();
+                }
+
+            }
+        );
+
+</script>
+
+</body>
+</html>
+```
